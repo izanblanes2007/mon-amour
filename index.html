@@ -8,9 +8,6 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <meta name="theme-color" content="#2b0736">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Mon Amour 💖">
 
     <title>Joyeux Anniversaire, mon amour 💖</title>
 
@@ -19,6 +16,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
+
 
     <style>
 
@@ -29,15 +27,12 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        html,
-        body {
-            overscroll-behavior: none;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             min-height: 100vh;
-            min-height: 100dvh;
-
             background:
                 radial-gradient(
                     circle at 20% 10%,
@@ -56,10 +51,7 @@
                     #46093a 100%
                 );
 
-            background-attachment: fixed;
-
-            font-family: 'Poppins', system-ui, sans-serif;
-
+            font-family: 'Poppins', sans-serif;
             color: #ffe8f2;
 
             overflow-x: hidden;
@@ -68,30 +60,28 @@
 
             display: flex;
             justify-content: center;
-
-            -webkit-font-smoothing: antialiased;
         }
 
 
-        /* ================================
-           CORAZONES FLOTANTES
-        ================================= */
+        /* =========================
+           CORAZONES FLOTANDO
+        ========================= */
 
         .spark {
             position: fixed;
             bottom: -40px;
             pointer-events: none;
             z-index: 0;
+
             opacity: 0;
 
             animation: floatUp linear infinite;
 
             filter:
                 drop-shadow(
-                    0 0 6px rgba(255, 110, 170, .9)
+                    0 0 6px
+                    rgba(255, 110, 170, .9)
                 );
-
-            will-change: transform, opacity;
         }
 
         @keyframes floatUp {
@@ -105,12 +95,12 @@
                 opacity: 0;
             }
 
-            12% {
-                opacity: .95;
+            15% {
+                opacity: .9;
             }
 
             85% {
-                opacity: .65;
+                opacity: .6;
             }
 
             100% {
@@ -124,9 +114,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            TARJETA
-        ================================= */
+        ========================= */
 
         .card {
             position: relative;
@@ -135,34 +125,37 @@
             width: 100%;
             max-width: 540px;
 
-            background: rgba(255, 255, 255, .06);
+            padding: 32px 20px 40px;
+
+            background:
+                rgba(255,255,255,.06);
 
             border:
                 1px solid
-                rgba(255, 175, 205, .3);
+                rgba(255,175,205,.3);
 
             border-radius: 28px;
-
-            padding: 32px 20px 40px;
 
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
 
             box-shadow:
-                0 0 70px rgba(255, 70, 140, .28),
-                inset 0 0 45px rgba(255, 130, 190, .08);
+                0 0 70px
+                rgba(255,70,140,.28),
+
+                inset 0 0 45px
+                rgba(255,130,190,.08);
 
             text-align: center;
 
-            animation:
-                appear 1.2s ease both;
+            animation: appear 1.2s ease both;
         }
 
         @keyframes appear {
 
             from {
                 opacity: 0;
-                transform: translateY(28px);
+                transform: translateY(25px);
             }
 
             to {
@@ -172,9 +165,9 @@
         }
 
 
-        /* ================================
-           BADGE
-        ================================= */
+        /* =========================
+           TITULO
+        ========================= */
 
         .badge {
             display: inline-block;
@@ -189,7 +182,7 @@
 
             border:
                 1px solid
-                rgba(255, 175, 205, .45);
+                rgba(255,175,205,.45);
 
             padding: 6px 16px;
 
@@ -198,18 +191,9 @@
             margin-bottom: 14px;
 
             background:
-                rgba(255, 90, 150, .14);
-
-            animation:
-                shine 5s linear infinite;
-
-            background-size: 200% auto;
+                rgba(255,90,150,.14);
         }
 
-
-        /* ================================
-           TITULO
-        ================================= */
 
         h1 {
             font-family:
@@ -248,6 +232,7 @@
         }
 
         @keyframes shine {
+
             to {
                 background-position:
                     300% center;
@@ -255,9 +240,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            EDAD
-        ================================= */
+        ========================= */
 
         .age {
             font-family:
@@ -271,13 +256,14 @@
                     5.2rem
                 );
 
-            line-height: 1;
-
             color: #ff87bb;
 
             text-shadow:
-                0 0 24px rgba(255, 90, 150, .9),
-                0 0 70px rgba(255, 90, 150, .55);
+                0 0 24px
+                rgba(255,90,150,.9),
+
+                0 0 70px
+                rgba(255,90,150,.55);
 
             animation:
                 beat 2.2s ease-in-out infinite;
@@ -285,8 +271,7 @@
 
         @keyframes beat {
 
-            0%,
-            100% {
+            0%,100% {
                 transform: scale(1);
             }
 
@@ -295,10 +280,6 @@
             }
         }
 
-
-        /* ================================
-           SUBTITULO
-        ================================= */
 
         .sub {
             font-family:
@@ -311,18 +292,14 @@
 
             color: #ffcbe1;
 
-            font-weight: 400;
-
             margin:
                 8px 0 22px;
-
-            letter-spacing: .3px;
         }
 
 
-        /* ================================
+        /* =========================
            CONTADOR
-        ================================= */
+        ========================= */
 
         .counter {
             display: inline-flex;
@@ -332,11 +309,11 @@
             gap: 8px;
 
             background:
-                rgba(255, 255, 255, .08);
+                rgba(255,255,255,.08);
 
             border:
                 1px solid
-                rgba(255, 175, 205, .35);
+                rgba(255,175,205,.35);
 
             padding:
                 8px 18px;
@@ -351,36 +328,33 @@
 
             box-shadow:
                 0 0 25px
-                rgba(255, 90, 150, .25);
+                rgba(255,90,150,.25);
         }
 
         .counter b {
             color: #ff9ac6;
-
-            font-weight: 600;
-
             font-size: .95rem;
         }
 
 
-        /* ================================
+        /* =========================
            FOTO
-        ================================= */
+        ========================= */
 
         .photo-frame {
             position: relative;
 
             width:
-                min(270px, 80%);
+                min(300px, 85%);
 
             aspect-ratio: 3 / 4;
 
             margin:
-                0 auto 26px;
-
-            border-radius: 24px;
+                0 auto 28px;
 
             padding: 5px;
+
+            border-radius: 24px;
 
             background:
                 linear-gradient(
@@ -391,26 +365,23 @@
                     #ff7ab8
                 );
 
-            background-size: 300% 300%;
+            background-size:
+                300% 300%;
 
             animation:
                 shine 6s linear infinite;
 
             box-shadow:
                 0 0 45px
-                rgba(255, 90, 150, .5);
+                rgba(255,90,150,.5);
 
             cursor: pointer;
-
-            transition:
-                transform .3s ease;
         }
 
-        .photo-frame:active {
-            transform: scale(.97);
-        }
 
         .photo-frame img {
+            display: block;
+
             width: 100%;
             height: 100%;
 
@@ -418,19 +389,19 @@
 
             border-radius: 19px;
 
-            display: block;
+            background: #22062d;
         }
 
 
-        /* ================================
+        /* =========================
            CARTA
-        ================================= */
+        ========================= */
 
         .letter {
             text-align: left;
 
             background:
-                rgba(255, 255, 255, .055);
+                rgba(255,255,255,.055);
 
             border-left:
                 3px solid #ff6aa8;
@@ -440,14 +411,11 @@
             padding:
                 24px 20px;
 
-            margin:
-                0 auto 26px;
+            margin-bottom: 28px;
 
             font-family:
                 'Cormorant Garamond',
                 serif;
-
-            font-weight: 400;
 
             font-size: 1.05rem;
 
@@ -457,7 +425,7 @@
 
             box-shadow:
                 inset 0 0 35px
-                rgba(255, 110, 170, .08);
+                rgba(255,110,170,.08);
         }
 
         .letter p + p {
@@ -465,11 +433,11 @@
             text-indent: 1.2em;
         }
 
-        .letter p:first-of-type {
+        .letter p:first-child {
             text-indent: 0;
         }
 
-        .letter .firma {
+        .firma {
             font-family:
                 'Great Vibes',
                 cursive;
@@ -481,18 +449,14 @@
             text-align: right;
 
             margin-top: 22px;
-
-            text-indent: 0;
         }
 
 
-        /* ================================
-           BOTON FRASES
-        ================================= */
+        /* =========================
+           BOTON
+        ========================= */
 
         .btn {
-            display: inline-block;
-
             border: none;
 
             cursor: pointer;
@@ -505,7 +469,7 @@
 
             font-size: 1.05rem;
 
-            color: #fff;
+            color: white;
 
             padding:
                 17px 42px;
@@ -520,30 +484,14 @@
                     #c04bff
                 );
 
-            background-size:
-                200% 200%;
-
             box-shadow:
                 0 10px 30px
-                rgba(255, 60, 130, .55);
+                rgba(255,60,130,.55);
 
             animation:
-                pulse 2.4s infinite,
-                shine 6s linear infinite;
-
-            transition:
-                transform .15s ease;
-
-            position: relative;
-
-            z-index: 3;
-
-            -webkit-user-select: none;
-            user-select: none;
+                pulse 2.4s infinite;
 
             touch-action: manipulation;
-
-            letter-spacing: .3px;
         }
 
         .btn:active {
@@ -555,40 +503,38 @@
             0% {
                 box-shadow:
                     0 10px 30px
-                    rgba(255, 60, 130, .55),
+                    rgba(255,60,130,.55),
                     0 0 0 0
-                    rgba(255, 90, 150, .65);
+                    rgba(255,90,150,.7);
             }
 
             70% {
                 box-shadow:
                     0 10px 30px
-                    rgba(255, 60, 130, .55),
+                    rgba(255,60,130,.55),
                     0 0 0 20px
-                    rgba(255, 90, 150, 0);
+                    rgba(255,90,150,0);
             }
 
             100% {
                 box-shadow:
                     0 10px 30px
-                    rgba(255, 60, 130, .55),
+                    rgba(255,60,130,.55),
                     0 0 0 0
-                    rgba(255, 90, 150, 0);
+                    rgba(255,90,150,0);
             }
         }
 
 
-        /* ================================
-           FRASE
-        ================================= */
+        /* =========================
+           FRASES
+        ========================= */
 
         .frase {
-            min-height: 70px;
+            min-height: 75px;
 
             margin:
-                22px auto 6px;
-
-            max-width: 440px;
+                22px auto;
 
             font-family:
                 'Great Vibes',
@@ -605,40 +551,36 @@
 
             text-shadow:
                 0 0 20px
-                rgba(255, 100, 165, .75);
-
-            transition:
-                opacity .35s ease,
-                transform .35s ease;
+                rgba(255,100,165,.75);
 
             line-height: 1.35;
+
+            transition:
+                opacity .3s,
+                transform .3s;
         }
 
         .frase.oculta {
             opacity: 0;
-
-            transform:
-                translateY(10px);
+            transform: translateY(10px);
         }
 
 
-        /* ================================
-           BOTON MUSICA
-        ================================= */
+        /* =========================
+           MUSICA
+        ========================= */
 
         .music-btn {
-            margin-top: 26px;
-
-            background:
-                rgba(255, 255, 255, .1);
+            margin-top: 10px;
 
             border:
                 1px solid
-                rgba(255, 175, 205, .5);
+                rgba(255,175,205,.5);
+
+            background:
+                rgba(255,255,255,.1);
 
             color: #ffd0e6;
-
-            font-size: .85rem;
 
             padding:
                 12px 24px;
@@ -651,34 +593,24 @@
                 'Poppins',
                 sans-serif;
 
-            transition:
-                background .25s;
-
-            -webkit-user-select: none;
-            user-select: none;
+            font-size: .85rem;
 
             touch-action: manipulation;
         }
 
-        .music-btn:hover {
-            background:
-                rgba(255, 255, 255, .18);
-        }
-
         .music-btn:active {
-            background:
-                rgba(255, 255, 255, .28);
+            transform: scale(.96);
         }
 
 
-        /* ================================
-           EXPLOSION CORAZONES
-        ================================= */
+        /* =========================
+           CORAZONES EXPLOSION
+        ========================= */
 
         .heart-burst {
             position: fixed;
 
-            z-index: 5;
+            z-index: 10;
 
             pointer-events: none;
 
@@ -686,17 +618,13 @@
 
             animation:
                 burst 1.5s ease-out forwards;
-
-            will-change:
-                transform,
-                opacity;
         }
 
         @keyframes burst {
 
             0% {
                 transform:
-                    translate(0, 0)
+                    translate(0,0)
                     scale(.4);
 
                 opacity: 1;
@@ -715,27 +643,19 @@
         }
 
 
-        /* ================================
-           FOOTER
-        ================================= */
-
         .footer {
-            margin-top: 24px;
+            margin-top: 25px;
 
             font-size: .72rem;
 
             color:
-                rgba(255, 200, 225, .6);
+                rgba(255,200,225,.6);
 
             letter-spacing: 1px;
         }
 
 
-        /* ================================
-           MOVIL
-        ================================= */
-
-        @media (max-width: 400px) {
+        @media(max-width:400px) {
 
             .card {
                 padding:
@@ -752,8 +672,7 @@
             }
 
             .photo-frame {
-                width:
-                    min(230px, 74%);
+                width: 75%;
             }
         }
 
@@ -764,638 +683,580 @@
 <body>
 
 
-    <div class="card">
+<div class="card">
 
 
-        <!-- ================================
-             TITULO
-        ================================= -->
-
-        <div class="badge">
-            Joyeux anniversaire 🎂
-        </div>
+    <div class="badge">
+        Joyeux anniversaire 🎂
+    </div>
 
 
-        <h1>
-            Mon amour, ma chérie
-        </h1>
+    <h1>
+        Mon amour, ma chérie
+    </h1>
 
 
-        <div class="age">
-            17
-        </div>
+    <div class="age">
+        17
+    </div>
 
 
-        <p class="sub">
-            Hier c'était ton jour… et aujourd'hui je continue de te célébrer 💕
-        </p>
+    <p class="sub">
+        Hier c'était ton jour… et aujourd'hui je continue de te célébrer 💕
+    </p>
 
 
-        <!-- ================================
-             CONTADOR
-        ================================= -->
+    <!-- CONTADOR -->
 
-        <div class="counter">
+    <div class="counter">
 
-            <span>
-                💗 Ensemble depuis
-            </span>
+        <span>
+            💗 Ensemble depuis
+        </span>
 
-            <b id="dias">
-                0
-            </b>
+        <b id="dias">
+            0
+        </b>
 
-            <span>
-                jours
-            </span>
-
-        </div>
-
-
-        <!-- ================================
-             FOTO
-        ================================= -->
-
-        <div
-            class="photo-frame"
-            id="photoFrame"
-        >
-
-            <img
-                id="foto"
-                src="./foto.jpeg"
-                alt="Mon amour"
-            >
-
-        </div>
-
-
-        <!-- ================================
-             CARTA
-        ================================= -->
-
-        <div class="letter">
-
-
-            <p>
-                Mon amour,
-            </p>
-
-
-            <p>
-                Hier c'était ton anniversaire, et aujourd'hui je veux continuer à te célébrer, parce qu'il y a des personnes qui méritent plus qu'un seul jour de fête… et tu es l'une d'elles.
-                Tu as eu <b>17 ans</b>, ma chérie, et tu ne sais pas à quel point je suis heureux de pouvoir t'accompagner dans ce si beau moment de ta vie.
-            </p>
-
-
-            <p>
-                Je veux que tu saches que tu es la plus belle chose qui me soit arrivée.
-                Depuis que tu es là, tout a plus de couleurs : les chansons sonnent mieux, les jours sont plus doux et même les instants les plus simples deviennent magiques.
-                J'adore ta façon de rire, ta façon de me regarder et ces petits détails que toi seule possèdes.
-            </p>
-
-
-            <p>
-                Merci de me laisser faire partie de tes jours, de me faire confiance et de m'offrir ton si bel amour.
-                Si je pouvais, je t'offrirais le monde entier — mais en attendant, je te donne mon temps, mes câlins et tout mon cœur.
-            </p>
-
-
-            <p>
-                Je te souhaite une année pleine de rêves réalisés, de rires, d'apprentissages et de moments inoubliables.
-                Et je te promets d'être à tes côtés dans chacun d'eux, de te soutenir toujours, de prendre soin de toi et de te rappeler à quel point tu es incroyable.
-            </p>
-
-
-            <p>
-                Joyeux anniversaire, ma princesse.
-                Je t'aime de tout mon cœur. 💖
-            </p>
-
-
-            <div class="firma">
-                À toi pour toujours ❤️
-            </div>
-
-
-        </div>
-
-
-        <!-- ================================
-             BOTON FRASE
-        ================================= -->
-
-        <button
-            class="btn"
-            id="btnFrase"
-        >
-            Touche-moi 💕
-        </button>
-
-
-        <p
-            class="frase"
-            id="frase"
-        >
-            Appuie sur le bouton pour lire un message surprise 💌
-        </p>
-
-
-        <!-- ================================
-             MUSICA
-        ================================= -->
-
-        <audio
-            id="song"
-            src="./musica.m4a"
-            loop
-        ></audio>
-
-
-        <button
-            class="music-btn"
-            id="musicBtn"
-        >
-            ▶️ Lire la musique
-        </button>
-
-
-        <div class="footer">
-            Fait avec beaucoup d'amour, juste pour toi 💗
-        </div>
-
+        <span>
+            jours
+        </span>
 
     </div>
 
 
+    <!-- FOTO -->
 
-    <script>
+    <div
+        class="photo-frame"
+        id="photoFrame"
+    >
+
+        <img
+            src="foto.jpeg"
+            alt="Mon amour"
+            id="foto"
+        >
+
+    </div>
 
 
-        /* ==========================================
-           CORAZONES FLOTANDO
-        ========================================== */
+    <!-- CARTA -->
 
-        const emojis = [
-            '❤️',
-            '💖',
-            '💕',
-            '💗',
-            '💓',
-            '💞',
-            '💘',
-            '🌹',
-            '💝',
-            '✨'
+    <div class="letter">
+
+        <p>
+            Mon amour,
+        </p>
+
+
+        <p>
+            Hier c'était ton anniversaire, et aujourd'hui je veux continuer à te célébrer, parce qu'il y a des personnes qui méritent plus qu'un seul jour de fête… et tu es l'une d'elles.
+            Tu as eu <b>17 ans</b>, ma chérie, et tu ne sais pas à quel point je suis heureux de pouvoir t'accompagner dans ce si beau moment de ta vie.
+        </p>
+
+
+        <p>
+            Je veux que tu saches que tu es la plus belle chose qui me soit arrivée.
+            Depuis que tu es là, tout a plus de couleurs : les chansons sonnent mieux, les jours sont plus doux et même les instants les plus simples deviennent magiques.
+            J'adore ta façon de rire, ta façon de me regarder et ces petits détails que toi seule possèdes.
+        </p>
+
+
+        <p>
+            Merci de me laisser faire partie de tes jours, de me faire confiance et de m'offrir ton si bel amour.
+            Si je pouvais, je t'offrirais le monde entier — mais en attendant, je te donne mon temps, mes câlins et tout mon cœur.
+        </p>
+
+
+        <p>
+            Je te souhaite une année pleine de rêves réalisés, de rires, d'apprentissages et de moments inoubliables.
+            Et je te promets d'être à tes côtés dans chacun d'eux, de te soutenir toujours, de prendre soin de toi et de te rappeler à quel point tu es incroyable.
+        </p>
+
+
+        <p>
+            Joyeux anniversaire, ma princesse.
+            Je t'aime de tout mon cœur. 💖
+        </p>
+
+
+        <div class="firma">
+            À toi pour toujours ❤️
+        </div>
+
+    </div>
+
+
+    <!-- FRASE -->
+
+    <button
+        class="btn"
+        id="btnFrase"
+    >
+        Touche-moi 💕
+    </button>
+
+
+    <p
+        class="frase"
+        id="frase"
+    >
+        Appuie sur le bouton pour lire un message surprise 💌
+    </p>
+
+
+    <!-- MUSICA -->
+
+    <audio
+        id="song"
+        preload="auto"
+        loop
+    >
+
+        <source
+            src="musica.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <button
+        class="music-btn"
+        id="musicBtn"
+    >
+        ▶️ Lire la musique
+    </button>
+
+
+    <div class="footer">
+        Fait avec beaucoup d'amour, juste pour toi 💗
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ==========================
+   CORAZONES
+========================== */
+
+const emojis = [
+    '❤️',
+    '💖',
+    '💕',
+    '💗',
+    '💓',
+    '💞',
+    '💘',
+    '🌹',
+    '💝',
+    '✨'
+];
+
+
+const esMovil =
+    window.innerWidth <= 700;
+
+
+const cantidad =
+    esMovil ? 16 : 28;
+
+
+function crearSpark() {
+
+    const h =
+        document.createElement('div');
+
+    h.className = 'spark';
+
+    h.textContent =
+        emojis[
+            Math.floor(
+                Math.random() *
+                emojis.length
+            )
         ];
 
+    h.style.left =
+        Math.random() * 100 + 'vw';
 
-        const esMovil =
-            window.matchMedia(
-                '(max-width: 700px)'
-            ).matches;
+    h.style.fontSize =
+        (14 + Math.random() * 22) + 'px';
 
+    h.style.animationDuration =
+        (10 + Math.random() * 8) + 's';
 
-        const cantidadCorazones =
-            esMovil ? 16 : 28;
+    h.style.animationDelay =
+        (Math.random() * 10) + 's';
 
-
-        function crearSpark() {
-
-            const h =
-                document.createElement('div');
-
-            h.className = 'spark';
-
-            h.textContent =
-                emojis[
-                    Math.floor(
-                        Math.random() *
-                        emojis.length
-                    )
-                ];
-
-            h.style.left =
-                Math.random() * 100 + 'vw';
-
-            h.style.fontSize =
-                (14 + Math.random() * 22) + 'px';
-
-            h.style.animationDuration =
-                (10 + Math.random() * 8) + 's';
-
-            h.style.animationDelay =
-                (Math.random() * 10) + 's';
-
-            document.body.appendChild(h);
-        }
+    document.body.appendChild(h);
+}
 
 
-        for (
-            let i = 0;
-            i < cantidadCorazones;
-            i++
-        ) {
-            crearSpark();
-        }
+for (
+    let i = 0;
+    i < cantidad;
+    i++
+) {
+    crearSpark();
+}
 
 
 
-        /* ==========================================
-           CONTADOR DE RELACION
-           
-           4 DE SEPTIEMBRE DE 2026
+/* ==========================
+   CONTADOR
 
-           IMPORTANTE:
-           Septiembre = 8
-           porque JavaScript cuenta:
+   4 SEPTIEMBRE 2026
+========================== */
 
-           Enero = 0
-           Febrero = 1
-           Marzo = 2
-           Abril = 3
-           Mayo = 4
-           Junio = 5
-           Julio = 6
-           Agosto = 7
-           Septiembre = 8
-        ========================================== */
+const fechaInicio =
+    new Date(
+        2026,
+        8,
+        4
+    );
 
 
-        const fechaInicio =
-            new Date(
-                2026,
-                8,
-                4
-            );
+function actualizarContador() {
+
+    const ahora =
+        new Date();
 
 
-        function actualizarContador() {
-
-            const ahora =
-                new Date();
-
-
-            const diferencia =
-                ahora.getTime()
-                -
-                fechaInicio.getTime();
+    const diferencia =
+        ahora.getTime()
+        -
+        fechaInicio.getTime();
 
 
-            const dias =
-                Math.floor(
-                    diferencia /
-                    86400000
-                );
-
-
-            const contador =
-                document.getElementById(
-                    'dias'
-                );
-
-
-            contador.textContent =
-                dias >= 0
-                    ? dias
-                    : 0;
-        }
-
-
-        actualizarContador();
-
-
-        /* Actualizar cada minuto */
-
-        setInterval(
-            actualizarContador,
-            60000
+    const dias =
+        Math.floor(
+            diferencia /
+            86400000
         );
 
 
+    document.getElementById(
+        'dias'
+    ).textContent =
+        Math.max(
+            0,
+            dias
+        );
+}
 
-        /* ==========================================
-           FOTO
-        ========================================== */
 
-        const photoFrame =
-            document.getElementById(
-                'photoFrame'
-            );
+actualizarContador();
 
 
-        photoFrame.addEventListener(
-            'click',
+setInterval(
+    actualizarContador,
+    60000
+);
+
+
+
+/* ==========================
+   FOTO
+========================== */
+
+const photoFrame =
+    document.getElementById(
+        'photoFrame'
+    );
+
+
+photoFrame.addEventListener(
+    'click',
+    function () {
+
+        const r =
+            photoFrame.getBoundingClientRect();
+
+
+        explosion(
+            r.left + r.width / 2,
+            r.top + r.height / 2,
+            16
+        );
+
+    }
+);
+
+
+
+/* ==========================
+   FRASES
+========================== */
+
+const frases = [
+
+    "Tu es la plus belle chose qui me soit arrivée 💖",
+
+    "17 ans et déjà la personne la plus incroyable que je connaisse 🌹",
+
+    "Ton sourire est mon endroit préféré au monde 😍",
+
+    "Merci d'exister, mon amour 💕",
+
+    "Chaque jour à tes côtés est mon cadeau préféré 🎁",
+
+    "Je t'aime plus que les mots ne peuvent le dire 💌",
+
+    "Tu es ma personne préférée dans tout l'univers ✨",
+
+    "Avec toi, jusqu'à l'infini et au-delà 💫",
+
+    "Ton rire est ma chanson préférée 🎶",
+
+    "Je tombe amoureux de toi encore et encore 💘",
+
+    "Tu es mon rêve réalisé, ma belle 🌙",
+
+    "Je veux fêter des millions d'anniversaires à tes côtés 🥰",
+
+    "Joyeux anniversaire, ma princesse 👑",
+
+    "Tu es le plus beau battement de mon cœur ❤️",
+
+    "17 raisons de t'aimer… et il m'en manque des millions 💗",
+
+    "Tu es ma plus belle coïncidence du destin 🍀",
+
+    "Merci d'être toi, si parfaite pour moi 💞",
+
+    "Chaque seconde avec toi vaut une éternité ⏳",
+
+    "Tu es mon avenir préféré, mon présent parfait 💍"
+
+];
+
+
+const btn =
+    document.getElementById(
+        'btnFrase'
+    );
+
+
+const fraseEl =
+    document.getElementById(
+        'frase'
+    );
+
+
+let ultima = -1;
+
+
+btn.addEventListener(
+    'click',
+    function (e) {
+
+        let i;
+
+
+        do {
+
+            i =
+                Math.floor(
+                    Math.random() *
+                    frases.length
+                );
+
+        } while (
+            i === ultima
+        );
+
+
+        ultima = i;
+
+
+        fraseEl.classList.add(
+            'oculta'
+        );
+
+
+        setTimeout(
             function () {
 
-                const r =
-                    photoFrame.getBoundingClientRect();
+                fraseEl.textContent =
+                    frases[i];
 
-
-                explosion(
-                    r.left + r.width / 2,
-                    r.top + r.height / 2,
-                    16
-                );
-
-            }
-        );
-
-
-
-        /* ==========================================
-           FRASES
-        ========================================== */
-
-        const frases = [
-
-            "Tu es la plus belle chose qui me soit arrivée 💖",
-
-            "17 ans et déjà la personne la plus incroyable que je connaisse 🌹",
-
-            "Ton sourire est mon endroit préféré au monde 😍",
-
-            "Merci d'exister, mon amour 💕",
-
-            "Chaque jour à tes côtés est mon cadeau préféré 🎁",
-
-            "Je t'aime plus que les mots ne peuvent le dire 💌",
-
-            "Tu es ma personne préférée dans tout l'univers ✨",
-
-            "Avec toi, jusqu'à l'infini et au-delà 💫",
-
-            "Ton rire est ma chanson préférée 🎶",
-
-            "Je tombe amoureux de toi encore et encore 💘",
-
-            "Tu es mon rêve réalisé, ma belle 🌙",
-
-            "Je veux fêter des millions d'anniversaires à tes côtés 🥰",
-
-            "Joyeux anniversaire, ma princesse 👑",
-
-            "Tu es le plus beau battement de mon cœur ❤️",
-
-            "17 raisons de t'aimer… et il m'en manque des millions 💗",
-
-            "Aucune distance, aucun jour gris ne peut rien contre toi 🌈",
-
-            "Tu es ma plus belle coïncidence du destin 🍀",
-
-            "Merci d'être toi, si parfaite pour moi 💞",
-
-            "Chaque seconde avec toi vaut une éternité ⏳",
-
-            "Tu es mon avenir préféré, mon présent parfait 💍"
-
-        ];
-
-
-        const btn =
-            document.getElementById(
-                'btnFrase'
-            );
-
-
-        const fraseEl =
-            document.getElementById(
-                'frase'
-            );
-
-
-        let ultima = -1;
-
-
-        btn.addEventListener(
-            'click',
-            function (e) {
-
-
-                let i;
-
-
-                do {
-
-                    i =
-                        Math.floor(
-                            Math.random() *
-                            frases.length
-                        );
-
-                } while (
-                    i === ultima &&
-                    frases.length > 1
-                );
-
-
-                ultima = i;
-
-
-                fraseEl.classList.add(
+                fraseEl.classList.remove(
                     'oculta'
                 );
 
-
-                setTimeout(
-                    function () {
-
-                        fraseEl.textContent =
-                            frases[i];
-
-                        fraseEl.classList.remove(
-                            'oculta'
-                        );
-
-                    },
-                    200
-                );
-
-
-                const x =
-                    e.clientX ||
-                    (window.innerWidth / 2);
-
-
-                const y =
-                    e.clientY ||
-                    (window.innerHeight / 2);
-
-
-                explosion(
-                    x,
-                    y
-                );
-
-            }
+            },
+            200
         );
 
 
+        explosion(
+            e.clientX ||
+            window.innerWidth / 2,
 
-        /* ==========================================
-           EXPLOSION DE CORAZONES
-        ========================================== */
+            e.clientY ||
+            window.innerHeight / 2
+        );
 
-        function explosion(
-            x,
-            y,
-            fuerza
-        ) {
-
-            const cantidad =
-                fuerza ||
-                (esMovil ? 9 : 13);
-
-
-            for (
-                let i = 0;
-                i < cantidad;
-                i++
-            ) {
-
-                const c =
-                    document.createElement(
-                        'div'
-                    );
-
-
-                c.className =
-                    'heart-burst';
-
-
-                c.textContent =
-                    emojis[
-                        Math.floor(
-                            Math.random() *
-                            emojis.length
-                        )
-                    ];
-
-
-                c.style.left =
-                    x + 'px';
-
-
-                c.style.top =
-                    y + 'px';
-
-
-                c.style.setProperty(
-                    '--x',
-                    (
-                        Math.random() * 220
-                        -
-                        110
-                    ) + 'px'
-                );
-
-
-                c.style.setProperty(
-                    '--y',
-                    (
-                        -Math.random() * 200
-                        -
-                        60
-                    ) + 'px'
-                );
-
-
-                c.style.animationDelay =
-                    (
-                        Math.random() * .15
-                    ) + 's';
-
-
-                document.body.appendChild(c);
-
-
-                setTimeout(
-                    function () {
-                        c.remove();
-                    },
-                    1700
-                );
-
-            }
-
-        }
+    }
+);
 
 
 
-        /* ==========================================
-           MUSICA
-        ========================================== */
+/* ==========================
+   EXPLOSION
+========================== */
 
-        const audioEl =
-            document.getElementById(
-                'song'
+function explosion(
+    x,
+    y,
+    fuerza
+) {
+
+    const cantidad =
+        fuerza ||
+        (esMovil ? 9 : 13);
+
+
+    for (
+        let i = 0;
+        i < cantidad;
+        i++
+    ) {
+
+        const c =
+            document.createElement(
+                'div'
             );
 
 
-        const musicBtn =
-            document.getElementById(
-                'musicBtn'
-            );
+        c.className =
+            'heart-burst';
 
 
-        musicBtn.addEventListener(
-            'click',
-            function () {
+        c.textContent =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
 
 
-                if (
-                    audioEl.paused
-                ) {
+        c.style.left =
+            x + 'px';
 
 
-                    audioEl.play()
-                        .then(
-                            function () {
-
-                                musicBtn.textContent =
-                                    '⏸️ Mettre en pause';
-
-                            }
-                        )
-                        .catch(
-                            function () {
-
-                                alert(
-                                    "La musique ne peut pas être lue. Vérifie que le fichier « musica.m4a » est bien dans le même dossier que « index.html »."
-                                );
-
-                            }
-                        );
+        c.style.top =
+            y + 'px';
 
 
-                } else {
-
-
-                    audioEl.pause();
-
-
-                    musicBtn.textContent =
-                        '▶️ Lire la musique';
-
-                }
-
-            }
+        c.style.setProperty(
+            '--x',
+            (
+                Math.random() * 220 -
+                110
+            ) + 'px'
         );
 
 
-        audioEl.addEventListener(
-            'ended',
-            function () {
+        c.style.setProperty(
+            '--y',
+            (
+                -Math.random() * 200 -
+                60
+            ) + 'px'
+        );
+
+
+        document.body.appendChild(c);
+
+
+        setTimeout(
+            () => c.remove(),
+            1700
+        );
+
+    }
+
+}
+
+
+
+/* ==========================
+   MUSICA
+========================== */
+
+const audio =
+    document.getElementById(
+        'song'
+    );
+
+
+const musicBtn =
+    document.getElementById(
+        'musicBtn'
+    );
+
+
+musicBtn.addEventListener(
+    'click',
+    async function () {
+
+        try {
+
+            if (audio.paused) {
+
+                await audio.play();
+
+                musicBtn.textContent =
+                    '⏸️ Mettre en pause';
+
+            } else {
+
+                audio.pause();
 
                 musicBtn.textContent =
                     '▶️ Lire la musique';
 
             }
+
+        } catch (error) {
+
+            console.error(
+                'Erreur audio:',
+                error
+            );
+
+            alert(
+                'Impossible de lire la musique. Vérifie que musica.mp3 est bien dans le même dossier que index.html.'
+            );
+
+        }
+
+    }
+);
+
+
+audio.addEventListener(
+    'error',
+    function () {
+
+        console.error(
+            'Le fichier musica.mp3 n’a pas pu être chargé.'
         );
 
+    }
+);
 
-    </script>
+
+</script>
 
 </body>
-
 </html>
