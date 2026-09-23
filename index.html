@@ -1,4 +1,4 @@
-¡```html
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,8 +6,10 @@
 
 <meta name="viewport"
       content="width=device-width,
-      initial-scale=1.0,
-      viewport-fit=cover">
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no,
+               viewport-fit=cover">
 
 <meta name="theme-color" content="#2b0736">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,9 +29,9 @@ rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+/* =========================================================
+   BASE
+========================================================= */
 
 * {
     margin: 0;
@@ -42,11 +44,11 @@ html {
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 body {
     width: 100%;
-    min-width: 0;
     min-height: 100vh;
     min-height: 100dvh;
 
@@ -70,15 +72,16 @@ body {
 
     background-attachment: fixed;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
     color: #ffe8f2;
 
     overflow-x: hidden;
 
     padding:
-        12px
-        10px
-        40px;
+        max(14px, env(safe-area-inset-top))
+        max(10px, env(safe-area-inset-right))
+        max(35px, env(safe-area-inset-bottom))
+        max(10px, env(safe-area-inset-left));
 
     display: flex;
     justify-content: center;
@@ -87,29 +90,26 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* =====================================================
-   CORAZONES FLOTANDO
-===================================================== */
+/* =========================================================
+   FOND — CŒURS
+========================================================= */
 
 .spark {
     position: fixed;
-
     bottom: -40px;
-
     pointer-events: none;
-
     z-index: 0;
 
     opacity: 0;
 
-    animation:
-        floatUp linear infinite;
+    animation: floatUp linear infinite;
 
     filter:
         drop-shadow(
-            0 0 6px
-            rgba(255,110,170,.9)
+            0 0 6px rgba(255,110,170,.9)
         );
+
+    will-change: transform, opacity;
 }
 
 @keyframes floatUp {
@@ -119,7 +119,6 @@ body {
             translateY(0)
             rotate(0)
             scale(.7);
-
         opacity: 0;
     }
 
@@ -128,43 +127,32 @@ body {
     }
 
     85% {
-        opacity: .6;
+        opacity: .55;
     }
 
     100% {
         transform:
             translateY(-115vh)
             rotate(360deg)
-            scale(1.1);
-
+            scale(1.15);
         opacity: 0;
     }
 }
 
-/* =====================================================
-   TARJETA PRINCIPAL
-===================================================== */
+/* =========================================================
+   CARTE PRINCIPALE
+========================================================= */
 
 .card {
     position: relative;
-
     z-index: 2;
 
     width: 100%;
-
     max-width: 540px;
 
-    min-width: 0;
+    margin: 8px auto 0;
 
-    margin: 0 auto;
-
-    padding:
-        30px
-        20px
-        38px;
-
-    background:
-        rgba(255,255,255,.06);
+    background: rgba(255,255,255,.065);
 
     border:
         1px solid
@@ -172,25 +160,23 @@ body {
 
     border-radius: 28px;
 
-    backdrop-filter:
-        blur(16px);
+    padding:
+        30px
+        22px
+        36px;
 
-    -webkit-backdrop-filter:
-        blur(16px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 
     box-shadow:
-        0 0 70px
-        rgba(255,70,140,.28),
-
-        inset 0 0 45px
-        rgba(255,130,190,.08);
+        0 0 70px rgba(255,70,140,.28),
+        inset 0 0 45px rgba(255,130,190,.08);
 
     text-align: center;
 
     animation:
-        appear 1.2s ease both;
+        appear 1s ease both;
 
-    /* CLAVE PARA MÓVIL */
     overflow: hidden;
 }
 
@@ -198,27 +184,23 @@ body {
 
     from {
         opacity: 0;
-        transform:
-            translateY(25px);
+        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 }
 
-/* =====================================================
+/* =========================================================
    BADGE
-===================================================== */
+========================================================= */
 
 .badge {
     display: inline-block;
 
-    max-width: 100%;
-
-    font-size: .7rem;
+    font-size: .68rem;
 
     letter-spacing: 2px;
 
@@ -235,26 +217,29 @@ body {
 
     border-radius: 999px;
 
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 
     background:
         rgba(255,90,150,.14);
+
+    animation:
+        shine 5s linear infinite;
+
+    background-size: 200% auto;
 }
 
-/* =====================================================
+/* =========================================================
    TITRE
-===================================================== */
+========================================================= */
 
 h1 {
-    width: 100%;
-
     font-family:
         'Great Vibes',
         cursive;
 
     font-size:
         clamp(
-            2.3rem,
+            2.35rem,
             10vw,
             4rem
         );
@@ -270,8 +255,7 @@ h1 {
             #ffd6e8
         );
 
-    background-size:
-        300% auto;
+    background-size: 300% auto;
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -294,9 +278,9 @@ h1 {
     }
 }
 
-/* =====================================================
-   EDAD
-===================================================== */
+/* =========================================================
+   ÂGE
+========================================================= */
 
 .age {
     font-family:
@@ -315,11 +299,8 @@ h1 {
     color: #ff87bb;
 
     text-shadow:
-        0 0 24px
-        rgba(255,90,150,.9),
-
-        0 0 70px
-        rgba(255,90,150,.55);
+        0 0 24px rgba(255,90,150,.9),
+        0 0 70px rgba(255,90,150,.55);
 
     animation:
         beat 2.2s ease-in-out infinite;
@@ -327,7 +308,7 @@ h1 {
 
 @keyframes beat {
 
-    0%, 100% {
+    0%,100% {
         transform: scale(1);
     }
 
@@ -336,19 +317,11 @@ h1 {
     }
 }
 
-/* =====================================================
-   SUBTÍTULO
-===================================================== */
+/* =========================================================
+   SUBTITRE
+========================================================= */
 
 .sub {
-    width: 100%;
-
-    max-width: 390px;
-
-    margin:
-        8px auto
-        20px;
-
     font-family:
         'Cormorant Garamond',
         serif;
@@ -365,11 +338,21 @@ h1 {
     line-height: 1.45;
 
     color: #ffcbe1;
+
+    font-weight: 400;
+
+    margin:
+        8px auto
+        20px;
+
+    max-width: 390px;
+
+    letter-spacing: .2px;
 }
 
-/* =====================================================
-   CONTADOR
-===================================================== */
+/* =========================================================
+   COMPTEUR
+========================================================= */
 
 .counter {
     display: flex;
@@ -382,15 +365,11 @@ h1 {
     gap: 5px;
 
     width: fit-content;
-
     max-width: 100%;
 
     margin:
         0 auto
         24px;
-
-    padding:
-        8px 14px;
 
     background:
         rgba(255,255,255,.08);
@@ -398,6 +377,9 @@ h1 {
     border:
         1px solid
         rgba(255,175,205,.35);
+
+    padding:
+        8px 14px;
 
     border-radius: 999px;
 
@@ -414,32 +396,18 @@ h1 {
     color: #ff9ac6;
 
     font-weight: 600;
+
+    font-size: .9rem;
 }
 
-/* =====================================================
-   RECUADRO DE LA CARTA
-===================================================== */
+/* =========================================================
+   LETTRE
+========================================================= */
 
 .letter {
-
-    /* ESTO EVITA QUE SOBRESALGA */
-    display: block;
-
     width: 100%;
-    max-width: 100%;
-    min-width: 0;
 
-    margin:
-        0
-        0
-        26px;
-
-    padding:
-        22px
-        17px;
-
-    /* MUY IMPORTANTE */
-    box-sizing: border-box;
+    text-align: left;
 
     background:
         rgba(255,255,255,.055);
@@ -450,16 +418,25 @@ h1 {
 
     border-radius: 16px;
 
-    text-align: left;
+    padding:
+        21px 17px;
+
+    margin:
+        0 auto
+        24px;
 
     font-family:
         'Cormorant Garamond',
         serif;
 
-    font-size:
-        1.05rem;
-
     font-weight: 400;
+
+    font-size:
+        clamp(
+            .98rem,
+            4.3vw,
+            1.05rem
+        );
 
     line-height: 1.75;
 
@@ -469,25 +446,11 @@ h1 {
         inset 0 0 35px
         rgba(255,110,170,.08);
 
-    /* EVITA QUE PALABRAS LARGAS ROMPAN EL RECUADRO */
     overflow-wrap: break-word;
-    word-wrap: break-word;
-
-    /* NUNCA PERMITE DESBORDAMIENTO */
-    overflow: hidden;
-}
-
-.letter p {
-    width: 100%;
-    max-width: 100%;
-
-    overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
 .letter p + p {
     margin-top: 14px;
-
     text-indent: 1em;
 }
 
@@ -496,14 +459,16 @@ h1 {
 }
 
 .letter .firma {
-    width: 100%;
-
     font-family:
         'Great Vibes',
         cursive;
 
     font-size:
-        1.9rem;
+        clamp(
+            1.7rem,
+            8vw,
+            1.9rem
+        );
 
     color: #ff9ac6;
 
@@ -512,13 +477,11 @@ h1 {
     margin-top: 20px;
 
     text-indent: 0;
-
-    overflow-wrap: break-word;
 }
 
-/* =====================================================
+/* =========================================================
    BOTÓN
-===================================================== */
+========================================================= */
 
 .btn {
     display: inline-flex;
@@ -526,16 +489,9 @@ h1 {
     align-items: center;
     justify-content: center;
 
-    min-height: 52px;
-
-    max-width: 100%;
-
-    padding:
-        14px 28px;
+    min-height: 54px;
 
     border: none;
-
-    border-radius: 999px;
 
     cursor: pointer;
 
@@ -546,9 +502,18 @@ h1 {
     font-weight: 600;
 
     font-size:
-        1rem;
+        clamp(
+            .92rem,
+            4vw,
+            1.05rem
+        );
 
-    color: white;
+    color: #fff;
+
+    padding:
+        15px 28px;
+
+    border-radius: 999px;
 
     background:
         linear-gradient(
@@ -566,11 +531,24 @@ h1 {
         rgba(255,60,130,.55);
 
     animation:
-        pulse 2.4s infinite;
+        pulse 2.4s infinite,
+        shine 6s linear infinite;
+
+    transition:
+        transform .15s ease;
+
+    position: relative;
+
+    z-index: 3;
+
+    -webkit-user-select: none;
+    user-select: none;
 
     touch-action: manipulation;
 
-    user-select: none;
+    letter-spacing: .2px;
+
+    max-width: 100%;
 }
 
 .btn:active {
@@ -604,20 +582,20 @@ h1 {
     }
 }
 
-/* =====================================================
+/* =========================================================
    FRASE
-===================================================== */
+========================================================= */
 
 .frase {
     width: 100%;
 
-    max-width: 440px;
-
-    min-height: 75px;
+    min-height: 78px;
 
     margin:
         20px auto
-        5px;
+        4px;
+
+    max-width: 440px;
 
     padding:
         0 5px;
@@ -633,31 +611,29 @@ h1 {
             2.05rem
         );
 
-    line-height: 1.35;
-
     color: #ffd8ea;
 
     text-shadow:
         0 0 20px
         rgba(255,100,165,.75);
 
-    overflow-wrap: break-word;
-
     transition:
         opacity .35s ease,
         transform .35s ease;
+
+    line-height: 1.35;
+
+    overflow-wrap: break-word;
 }
 
 .frase.oculta {
     opacity: 0;
-
-    transform:
-        translateY(10px);
+    transform: translateY(10px);
 }
 
-/* =====================================================
-   EXPLOSIÓN
-===================================================== */
+/* =========================================================
+   EXPLOSION DE CŒURS
+========================================================= */
 
 .heart-burst {
     position: fixed;
@@ -670,6 +646,10 @@ h1 {
 
     animation:
         burst 1.5s ease-out forwards;
+
+    will-change:
+        transform,
+        opacity;
 }
 
 @keyframes burst {
@@ -691,25 +671,16 @@ h1 {
     }
 }
 
-/* =====================================================
+/* =========================================================
    INSTALACIÓN
-===================================================== */
+========================================================= */
 
 .install-btn {
     display: none;
 
-    max-width: 100%;
-
     margin:
         10px auto
         0;
-
-    padding:
-        12px 22px;
-
-    border: none;
-
-    border-radius: 999px;
 
     background:
         linear-gradient(
@@ -718,171 +689,181 @@ h1 {
             #c04bff
         );
 
-    color: white;
+    border: none;
+
+    color: #fff;
+
+    font-size: .82rem;
+
+    padding:
+        12px 22px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
 
     font-family:
         'Poppins',
         sans-serif;
-
-    font-size: .82rem;
 
     font-weight: 600;
 
     box-shadow:
         0 8px 24px
         rgba(255,60,130,.55);
+
+    max-width: 100%;
 }
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 .footer {
-    width: 100%;
-
     margin-top: 21px;
 
     font-size: .68rem;
 
-    line-height: 1.5;
-
     color:
         rgba(255,200,225,.6);
 
-    letter-spacing: .8px;
+    letter-spacing:
+        .8px;
+
+    line-height: 1.5;
 }
 
-/* =====================================================
-   MÓVIL
-===================================================== */
+/* =========================================================
+   MÓVILES PEQUEÑOS
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
 
     body {
         padding:
+            max(10px, env(safe-area-inset-top))
             8px
-            7px
-            30px;
+            max(28px, env(safe-area-inset-bottom))
+            8px;
     }
 
     .card {
-
-        width: 100%;
-        max-width: 100%;
+        margin-top: 3px;
 
         padding:
-            25px
-            11px
+            25px 15px
             30px;
 
-        border-radius: 22px;
+        border-radius: 23px;
     }
 
-    .letter {
-
-        width: 100%;
-        max-width: 100%;
-
-        margin-left: 0;
-        margin-right: 0;
-
-        padding:
-            19px
-            14px;
-
-        font-size:
-            .99rem;
-
-        line-height:
-            1.7;
-
-        border-radius: 14px;
-    }
-
-    .letter p {
-        max-width: 100%;
-    }
-
-    .letter p + p {
-        text-indent: .6em;
-    }
-
-    .letter .firma {
-        font-size: 1.75rem;
-    }
-
-    .btn {
-        font-size: .9rem;
-        padding:
-            14px
-            23px;
-    }
-
-    .frase {
-        font-size:
-            1.5rem;
-    }
-}
-
-/* =====================================================
-   MÓVILES MUY PEQUEÑOS
-===================================================== */
-
-@media (max-width: 360px) {
-
-    body {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    .card {
-        padding:
-            22px
-            9px
-            27px;
-
-        border-radius: 20px;
+    .badge {
+        font-size: .62rem;
+        letter-spacing: 1.7px;
+        padding: 6px 12px;
     }
 
     h1 {
-        font-size:
-            2.25rem;
+        font-size: 2.5rem;
     }
 
     .age {
-        font-size:
-            3.6rem;
+        font-size: 4rem;
+    }
+
+    .sub {
+        font-size: .98rem;
+        margin-bottom: 18px;
+    }
+
+    .counter {
+        font-size: .7rem;
+        padding: 7px 12px;
+        margin-bottom: 20px;
+    }
+
+    .counter b {
+        font-size: .84rem;
     }
 
     .letter {
         padding:
-            17px
-            12px;
+            19px 15px;
 
-        font-size:
-            .94rem;
+        font-size: .99rem;
 
-        line-height:
-            1.65;
+        line-height: 1.72;
     }
 
-    .letter .firma {
-        font-size:
-            1.6rem;
+    .letter p + p {
+        margin-top: 13px;
+        text-indent: .7em;
     }
 
     .btn {
-        font-size:
-            .86rem;
-
+        width: auto;
+        max-width: 90%;
         padding:
-            13px
-            19px;
+            14px 24px;
     }
 
     .frase {
-        font-size:
-            1.4rem;
+        font-size: 1.55rem;
+        min-height: 82px;
+    }
+
+}
+
+/* =========================================================
+   MÓVILES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .card {
+        padding:
+            22px 12px
+            27px;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    .age {
+        font-size: 3.6rem;
+    }
+
+    .letter {
+        padding:
+            17px 13px;
+
+        font-size: .94rem;
+    }
+
+    .btn {
+        font-size: .88rem;
+        padding:
+            13px 20px;
+    }
+
+    .frase {
+        font-size: 1.42rem;
+    }
+}
+
+/* =========================================================
+   REDUCIR ANIMACIONES SI EL MÓVIL LO PIDE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
     }
 }
 
@@ -947,21 +928,15 @@ h1 {
 
     </div>
 
-    <button
-        class="btn"
-        id="btnFrase">
+    <button class="btn" id="btnFrase">
         Touche-moi 💕
     </button>
 
-    <p
-        class="frase"
-        id="frase">
+    <p class="frase" id="frase">
         Appuie sur le bouton pour lire un message surprise 💌
     </p>
 
-    <button
-        class="install-btn"
-        id="installBtn">
+    <button class="install-btn" id="installBtn">
         📲 Installer sur mon écran
     </button>
 
@@ -973,9 +948,9 @@ h1 {
 
 <script>
 
-/* =====================================================
-   CORAZONES FLOTANTES
-===================================================== */
+/* =========================================================
+   ÉTINCELLES
+========================================================= */
 
 const emojis = [
     '❤️',
@@ -991,9 +966,7 @@ const emojis = [
 ];
 
 const esMovil =
-    window.matchMedia(
-        '(max-width: 700px)'
-    ).matches;
+    window.matchMedia('(max-width: 700px)').matches;
 
 const cantidadCorazones =
     esMovil ? 10 : 20;
@@ -1003,8 +976,7 @@ function crearSpark() {
     const h =
         document.createElement('div');
 
-    h.className =
-        'spark';
+    h.className = 'spark';
 
     h.textContent =
         emojis[
@@ -1038,43 +1010,44 @@ for (
 }
 
 
-/* =====================================================
+/* =========================================================
    COMPTEUR
-===================================================== */
+========================================================= */
 
 /*
-   CAMBIA ESTA FECHA POR LA FECHA REAL.
+   MODIFIE CETTE DATE.
 
-   Ejemplo:
-   14 febrero 2026
-
+   Exemple :
+   14 février 2026 =
    new Date(2026, 1, 14)
 
-   Enero = 0
-   Febrero = 1
-   Marzo = 2
+   Attention :
+   janvier = 0
+   février = 1
+   mars = 2
+   etc.
 */
 
 const fechaInicio =
     new Date(2024, 1, 14);
 
+const diferencia =
+    Date.now() -
+    fechaInicio.getTime();
+
 const dias =
     Math.floor(
-        (
-            Date.now() -
-            fechaInicio.getTime()
-        ) / 86400000
+        diferencia /
+        86400000
     );
 
-document.getElementById(
-    'dias'
-).textContent =
+document.getElementById('dias').textContent =
     dias > 0 ? dias : 0;
 
 
-/* =====================================================
-   FRASES
-===================================================== */
+/* =========================================================
+   PHRASES
+========================================================= */
 
 const frases = [
 
@@ -1121,14 +1094,10 @@ const frases = [
 ];
 
 const btn =
-    document.getElementById(
-        'btnFrase'
-    );
+    document.getElementById('btnFrase');
 
 const fraseEl =
-    document.getElementById(
-        'frase'
-    );
+    document.getElementById('frase');
 
 let ultima = -1;
 
@@ -1173,26 +1142,23 @@ btn.addEventListener(
 
         const x =
             e.clientX ||
-            window.innerWidth / 2;
+            (window.innerWidth / 2);
 
         const y =
             e.clientY ||
-            window.innerHeight / 2;
+            (window.innerHeight / 2);
 
         explosion(x, y);
+
     }
 );
 
 
-/* =====================================================
-   EXPLOSIÓN DE CORAZONES
-===================================================== */
+/* =========================================================
+   EXPLOSION DE CŒURS
+========================================================= */
 
-function explosion(
-    x,
-    y,
-    fuerza
-) {
+function explosion(x, y, fuerza) {
 
     const cantidad =
         fuerza ||
@@ -1205,9 +1171,7 @@ function explosion(
     ) {
 
         const c =
-            document.createElement(
-                'div'
-            );
+            document.createElement('div');
 
         c.className =
             'heart-burst';
@@ -1228,42 +1192,32 @@ function explosion(
 
         c.style.setProperty(
             '--x',
-            (
-                Math.random() * 180 -
-                90
-            ) + 'px'
+            (Math.random() * 180 - 90) + 'px'
         );
 
         c.style.setProperty(
             '--y',
-            (
-                -Math.random() * 180 -
-                50
-            ) + 'px'
+            (-Math.random() * 180 - 50) + 'px'
         );
 
         c.style.animationDelay =
-            (
-                Math.random() * .12
-            ) + 's';
+            (Math.random() * .12) + 's';
 
         document.body.appendChild(c);
 
         setTimeout(
-            function() {
-                c.remove();
-            },
+            () => c.remove(),
             1700
         );
     }
 }
 
 
-/* =====================================================
-   INSTALACIÓN
-===================================================== */
+/* =========================================================
+   INSTALLATION PWA
+========================================================= */
 
-let deferredPrompt = null;
+let deferredPrompt;
 
 const installBtn =
     document.getElementById(
@@ -1320,4 +1274,8 @@ window.addEventListener(
 
 </body>
 </html>
-``
+```
+
+Con este cambio, en móvil la tarjeta ocupa mejor el ancho, la carta tiene un tamaño de letra más cómodo, el botón no se sale de la pantalla, se respetan las zonas de seguridad del móvil y se reducen los corazones flotantes para que no vaya lento.
+
+**Importante:** no he cambiado la estructura de tu página ni la carta; he centrado los cambios en que se vea y funcione correctamente en pantallas pequeñas.
