@@ -1,1281 +1,780 @@
-```html
+html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               maximum-scale=1.0,
-               user-scalable=no,
-               viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#2b0736">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Mon Amour 💖">
 
-<link rel="manifest"
-href="data:application/json,%7B%22name%22%3A%22Lettre%20d%27Amour%22%2C%22short_name%22%3A%22Mon%20Amour%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%232b0736%22%2C%22theme_color%22%3A%22%232b0736%22%7D">
+<link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Lettre%20d%27Amour%22%2C%22short_name%22%3A%22Mon%20Amour%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%232b0736%22%2C%22theme_color%22%3A%22%232b0736%22%7D">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap"
-rel="stylesheet">
-
-<title>Joyeux Anniversaire, mon amour 💖</title>
-
-<style>
-
-/* =========================================================
-   BASE
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
-
-html {
-    width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-    overscroll-behavior: none;
-}
-
-body {
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    background:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(255,90,150,.28),
-            transparent 45%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(180,60,220,.28),
-            transparent 45%
-        ),
-        linear-gradient(
-            160deg,
-            #180421 0%,
-            #2b0736 45%,
-            #46093a 100%
-        );
-
-    background-attachment: fixed;
-
-    font-family: 'Poppins', system-ui, sans-serif;
-    color: #ffe8f2;
-
-    overflow-x: hidden;
-
-    padding:
-        max(14px, env(safe-area-inset-top))
-        max(10px, env(safe-area-inset-right))
-        max(35px, env(safe-area-inset-bottom))
-        max(10px, env(safe-area-inset-left));
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    -webkit-font-smoothing: antialiased;
-}
-
-/* =========================================================
-   FOND — CŒURS
-========================================================= */
-
-.spark {
-    position: fixed;
-    bottom: -40px;
-    pointer-events: none;
-    z-index: 0;
-
-    opacity: 0;
-
-    animation: floatUp linear infinite;
-
-    filter:
-        drop-shadow(
-            0 0 6px rgba(255,110,170,.9)
-        );
-
-    will-change: transform, opacity;
-}
-
-@keyframes floatUp {
-
-    0% {
-        transform:
-            translateY(0)
-            rotate(0)
-            scale(.7);
-        opacity: 0;
-    }
-
-    12% {
-        opacity: .9;
-    }
-
-    85% {
-        opacity: .55;
-    }
-
-    100% {
-        transform:
-            translateY(-115vh)
-            rotate(360deg)
-            scale(1.15);
-        opacity: 0;
-    }
-}
-
-/* =========================================================
-   CARTE PRINCIPALE
-========================================================= */
-
-.card {
-    position: relative;
-    z-index: 2;
-
-    width: 100%;
-    max-width: 540px;
-
-    margin: 8px auto 0;
-
-    background: rgba(255,255,255,.065);
-
-    border:
-        1px solid
-        rgba(255,175,205,.3);
-
-    border-radius: 28px;
-
-    padding:
-        30px
-        22px
-        36px;
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    box-shadow:
-        0 0 70px rgba(255,70,140,.28),
-        inset 0 0 45px rgba(255,130,190,.08);
-
-    text-align: center;
-
-    animation:
-        appear 1s ease both;
-
-    overflow: hidden;
-}
-
-@keyframes appear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =========================================================
-   BADGE
-========================================================= */
-
-.badge {
-    display: inline-block;
-
-    font-size: .68rem;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    color: #ffc2dd;
-
-    border:
-        1px solid
-        rgba(255,175,205,.45);
-
-    padding:
-        6px 14px;
-
-    border-radius: 999px;
-
-    margin-bottom: 13px;
-
-    background:
-        rgba(255,90,150,.14);
-
-    animation:
-        shine 5s linear infinite;
-
-    background-size: 200% auto;
-}
-
-/* =========================================================
-   TITRE
-========================================================= */
-
-h1 {
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(
-            2.35rem,
-            10vw,
-            4rem
-        );
-
-    line-height: 1.05;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffd6e8,
-            #ff5f9e,
-            #ffb3d9,
-            #ffd6e8
-        );
-
-    background-size: 300% auto;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    animation:
-        shine 5s linear infinite;
-
-    margin-bottom: 5px;
-
-    overflow-wrap: break-word;
-}
-
-@keyframes shine {
-
-    to {
-        background-position:
-            300% center;
-    }
-}
-
-/* =========================================================
-   ÂGE
-========================================================= */
-
-.age {
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(
-            3.2rem,
-            15vw,
-            5.2rem
-        );
-
-    line-height: 1;
-
-    color: #ff87bb;
-
-    text-shadow:
-        0 0 24px rgba(255,90,150,.9),
-        0 0 70px rgba(255,90,150,.55);
-
-    animation:
-        beat 2.2s ease-in-out infinite;
-}
-
-@keyframes beat {
-
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.07);
-    }
-}
-
-/* =========================================================
-   SUBTITRE
-========================================================= */
-
-.sub {
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-style: italic;
-
-    font-size:
-        clamp(
-            .95rem,
-            4vw,
-            1.05rem
-        );
-
-    line-height: 1.45;
-
-    color: #ffcbe1;
-
-    font-weight: 400;
-
-    margin:
-        8px auto
-        20px;
-
-    max-width: 390px;
-
-    letter-spacing: .2px;
-}
-
-/* =========================================================
-   COMPTEUR
-========================================================= */
-
-.counter {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 5px;
-
-    width: fit-content;
-    max-width: 100%;
-
-    margin:
-        0 auto
-        24px;
-
-    background:
-        rgba(255,255,255,.08);
-
-    border:
-        1px solid
-        rgba(255,175,205,.35);
-
-    padding:
-        8px 14px;
-
-    border-radius: 999px;
-
-    font-size: .76rem;
-
-    color: #ffd0e6;
-
-    box-shadow:
-        0 0 25px
-        rgba(255,90,150,.25);
-}
-
-.counter b {
-    color: #ff9ac6;
-
-    font-weight: 600;
-
-    font-size: .9rem;
-}
-
-/* =========================================================
-   LETTRE
-========================================================= */
-
-.letter {
-    width: 100%;
-
-    text-align: left;
-
-    background:
-        rgba(255,255,255,.055);
-
-    border-left:
-        3px solid
-        #ff6aa8;
-
-    border-radius: 16px;
-
-    padding:
-        21px 17px;
-
-    margin:
-        0 auto
-        24px;
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-weight: 400;
-
-    font-size:
-        clamp(
-            .98rem,
-            4.3vw,
-            1.05rem
-        );
-
-    line-height: 1.75;
-
-    color: #fff0f7;
-
-    box-shadow:
-        inset 0 0 35px
-        rgba(255,110,170,.08);
-
-    overflow-wrap: break-word;
-}
-
-.letter p + p {
-    margin-top: 14px;
-    text-indent: 1em;
-}
-
-.letter p:first-of-type {
-    text-indent: 0;
-}
-
-.letter .firma {
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(
-            1.7rem,
-            8vw,
-            1.9rem
-        );
-
-    color: #ff9ac6;
-
-    text-align: right;
-
-    margin-top: 20px;
-
-    text-indent: 0;
-}
-
-/* =========================================================
-   BOTÓN
-========================================================= */
-
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 54px;
-
-    border: none;
-
-    cursor: pointer;
-
-    font-family:
-        'Poppins',
-        sans-serif;
-
-    font-weight: 600;
-
-    font-size:
-        clamp(
-            .92rem,
-            4vw,
-            1.05rem
-        );
-
-    color: #fff;
-
-    padding:
-        15px 28px;
-
-    border-radius: 999px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff3d84,
-            #ff6fb1,
-            #c04bff
-        );
-
-    background-size:
-        200% 200%;
-
-    box-shadow:
-        0 10px 30px
-        rgba(255,60,130,.55);
-
-    animation:
-        pulse 2.4s infinite,
-        shine 6s linear infinite;
-
-    transition:
-        transform .15s ease;
-
-    position: relative;
-
-    z-index: 3;
-
-    -webkit-user-select: none;
-    user-select: none;
-
-    touch-action: manipulation;
-
-    letter-spacing: .2px;
-
-    max-width: 100%;
-}
-
-.btn:active {
-    transform: scale(.94);
-}
-
-@keyframes pulse {
-
-    0% {
-        box-shadow:
-            0 10px 30px
-            rgba(255,60,130,.55),
-            0 0 0 0
-            rgba(255,90,150,.65);
-    }
-
-    70% {
-        box-shadow:
-            0 10px 30px
-            rgba(255,60,130,.55),
-            0 0 0 18px
-            rgba(255,90,150,0);
-    }
-
-    100% {
-        box-shadow:
-            0 10px 30px
-            rgba(255,60,130,.55),
-            0 0 0 0
-            rgba(255,90,150,0);
-    }
-}
-
-/* =========================================================
-   FRASE
-========================================================= */
-
-.frase {
-    width: 100%;
-
-    min-height: 78px;
-
-    margin:
-        20px auto
-        4px;
-
-    max-width: 440px;
-
-    padding:
-        0 5px;
-
-    font-family:
-        'Great Vibes',
-        cursive;
-
-    font-size:
-        clamp(
-            1.45rem,
-            7vw,
-            2.05rem
-        );
-
-    color: #ffd8ea;
-
-    text-shadow:
-        0 0 20px
-        rgba(255,100,165,.75);
-
-    transition:
-        opacity .35s ease,
-        transform .35s ease;
-
-    line-height: 1.35;
-
-    overflow-wrap: break-word;
-}
-
-.frase.oculta {
-    opacity: 0;
-    transform: translateY(10px);
-}
-
-/* =========================================================
-   EXPLOSION DE CŒURS
-========================================================= */
-
-.heart-burst {
-    position: fixed;
-
-    z-index: 5;
-
-    pointer-events: none;
-
-    font-size: 1.25rem;
-
-    animation:
-        burst 1.5s ease-out forwards;
-
-    will-change:
-        transform,
-        opacity;
-}
-
-@keyframes burst {
-
-    0% {
-        transform:
-            translate(0,0)
-            scale(.4);
-
-        opacity: 1;
-    }
-
-    100% {
-        transform:
-            translate(var(--x),var(--y))
-            scale(1.35);
-
-        opacity: 0;
-    }
-}
-
-/* =========================================================
-   INSTALACIÓN
-========================================================= */
-
-.install-btn {
-    display: none;
-
-    margin:
-        10px auto
-        0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff3d84,
-            #c04bff
-        );
-
-    border: none;
-
-    color: #fff;
-
-    font-size: .82rem;
-
-    padding:
-        12px 22px;
-
-    border-radius: 999px;
-
-    cursor: pointer;
-
-    font-family:
-        'Poppins',
-        sans-serif;
-
-    font-weight: 600;
-
-    box-shadow:
-        0 8px 24px
-        rgba(255,60,130,.55);
-
-    max-width: 100%;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-    margin-top: 21px;
-
-    font-size: .68rem;
-
-    color:
-        rgba(255,200,225,.6);
-
-    letter-spacing:
-        .8px;
-
-    line-height: 1.5;
-}
-
-/* =========================================================
-   MÓVILES PEQUEÑOS
-========================================================= */
-
-@media (max-width: 480px) {
-
-    body {
-        padding:
-            max(10px, env(safe-area-inset-top))
-            8px
-            max(28px, env(safe-area-inset-bottom))
-            8px;
-    }
-
-    .card {
-        margin-top: 3px;
-
-        padding:
-            25px 15px
-            30px;
-
-        border-radius: 23px;
-    }
-
-    .badge {
-        font-size: .62rem;
-        letter-spacing: 1.7px;
-        padding: 6px 12px;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .age {
-        font-size: 4rem;
-    }
-
-    .sub {
-        font-size: .98rem;
-        margin-bottom: 18px;
-    }
-
-    .counter {
-        font-size: .7rem;
-        padding: 7px 12px;
-        margin-bottom: 20px;
-    }
-
-    .counter b {
-        font-size: .84rem;
-    }
-
-    .letter {
-        padding:
-            19px 15px;
-
-        font-size: .99rem;
-
-        line-height: 1.72;
-    }
-
-    .letter p + p {
-        margin-top: 13px;
-        text-indent: .7em;
-    }
-
-    .btn {
-        width: auto;
-        max-width: 90%;
-        padding:
-            14px 24px;
-    }
-
-    .frase {
-        font-size: 1.55rem;
-        min-height: 82px;
-    }
-
-}
-
-/* =========================================================
-   MÓVILES MUY PEQUEÑOS
-========================================================= */
-
-@media (max-width: 360px) {
-
-    .card {
-        padding:
-            22px 12px
-            27px;
-    }
-
-    h1 {
-        font-size: 2.25rem;
-    }
-
-    .age {
-        font-size: 3.6rem;
-    }
-
-    .letter {
-        padding:
-            17px 13px;
-
-        font-size: .94rem;
-    }
-
-    .btn {
-        font-size: .88rem;
-        padding:
-            13px 20px;
-    }
-
-    .frase {
-        font-size: 1.42rem;
-    }
-}
-
-/* =========================================================
-   REDUCIR ANIMACIONES SI EL MÓVIL LO PIDE
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="card">
-
-    <div class="badge">
-        Joyeux anniversaire 🎂
-    </div>
-
-    <h1>
-        Mon amour, ma chérie
-    </h1>
-
-    <div class="age">
-        17
-    </div>
-
-    <p class="sub">
-        Hier c'était ton jour… et aujourd'hui je continue de te célébrer 💕
-    </p>
-
-    <div class="counter" id="counter">
-        <span>💗 Ensemble depuis</span>
-        <b id="dias">—</b>
-        <span>jours</span>
-    </div>
-
-    <div class="letter">
-
-        <p>
-            Mon amour,
-        </p>
-
-        <p>
-            Hier c'était ton anniversaire, et aujourd'hui je veux continuer à te célébrer, parce qu'il y a des personnes qui méritent plus qu'un seul jour de fête… et tu es l'une d'elles. Tu as eu <b>17 ans</b>, ma chérie, et tu ne sais pas à quel point je suis heureux de pouvoir t'accompagner dans ce si beau moment de ta vie.
-        </p>
-
-        <p>
-            Je veux que tu saches que tu es la plus belle chose qui me soit arrivée. Depuis que tu es là, tout a plus de couleurs : les chansons sonnent mieux, les jours sont plus doux et même les instants les plus simples deviennent magiques. J'adore ta façon de rire, ta façon de me regarder et ces petits détails que toi seule possèdes.
-        </p>
-
-        <p>
-            Merci de me laisser faire partie de tes jours, de me faire confiance et de m'offrir ton si bel amour. Si je pouvais, je t'offrirais le monde entier — mais en attendant, je te donne mon temps, mes câlins et tout mon cœur.
-        </p>
-
-        <p>
-            Je te souhaite une année pleine de rêves réalisés, de rires, d'apprentissages et de moments inoubliables. Et je te promets d'être à tes côtés dans chacun d'eux, de te soutenir toujours, de prendre soin de toi et de te rappeler à quel point tu es incroyable.
-        </p>
-
-        <p>
-            Joyeux anniversaire, ma princesse. Je t'aime de tout mon cœur. 💖
-        </p>
-
-        <div class="firma">
-            À toi pour toujours ❤️
-        </div>
-
-    </div>
-
-    <button class="btn" id="btnFrase">
-        Touche-moi 💕
-    </button>
-
-    <p class="frase" id="frase">
-        Appuie sur le bouton pour lire un message surprise 💌
-    </p>
-
-    <button class="install-btn" id="installBtn">
-        📲 Installer sur mon écran
-    </button>
-
-    <div class="footer">
-        Fait avec beaucoup d'amour, juste pour toi 💗
-    </div>
-
-</div>
-
-<script>
-
-/* =========================================================
-   ÉTINCELLES
-========================================================= */
-
-const emojis = [
-    '❤️',
-    '💖',
-    '💕',
-    '💗',
-    '💓',
-    '💞',
-    '💘',
-    '🌹',
-    '💝',
-    '✨'
-];
-
-const esMovil =
-    window.matchMedia('(max-width: 700px)').matches;
-
-const cantidadCorazones =
-    esMovil ? 10 : 20;
-
-function crearSpark() {
-
-    const h =
-        document.createElement('div');
-
-    h.className = 'spark';
-
-    h.textContent =
-        emojis[
-            Math.floor(
-                Math.random() *
-                emojis.length
-            )
-        ];
-
-    h.style.left =
-        Math.random() * 100 + 'vw';
-
-    h.style.fontSize =
-        (14 + Math.random() * 18) + 'px';
-
-    h.style.animationDuration =
-        (10 + Math.random() * 8) + 's';
-
-    h.style.animationDelay =
-        (Math.random() * 10) + 's';
-
-    document.body.appendChild(h);
-}
-
-for (
-    let i = 0;
-    i < cantidadCorazones;
-    i++
-) {
-    crearSpark();
-}
-
-
-/* =========================================================
-   COMPTEUR
-========================================================= */
-
-/*
-   MODIFIE CETTE DATE.
-
-   Exemple :
-   14 février 2026 =
-   new Date(2026, 1, 14)
-
-   Attention :
-   janvier = 0
-   février = 1
-   mars = 2
-   etc.
-*/
-
-const fechaInicio =
-    new Date(2024, 1, 14);
-
-const diferencia =
-    Date.now() -
-    fechaInicio.getTime();
-
-const dias =
-    Math.floor(
-        diferencia /
-        86400000
-    );
-
-document.getElementById('dias').textContent =
-    dias > 0 ? dias : 0;
-
-
-/* =========================================================
-   PHRASES
-========================================================= */
-
-const frases = [
-
-    "Tu es la plus belle chose qui me soit arrivée 💖",
-
-    "17 ans et déjà la personne la plus incroyable que je connaisse 🌹",
-
-    "Ton sourire est mon endroit préféré au monde 😍",
-
-    "Merci d'exister, mon amour 💕",
-
-    "Chaque jour à tes côtés est mon cadeau préféré 🎁",
-
-    "Je t'aime plus que les mots ne peuvent le dire 💌",
-
-    "Tu es ma personne préférée dans tout l'univers ✨",
-
-    "Avec toi, jusqu'à l'infini et au-delà 💫",
-
-    "Ton rire est ma chanson préférée 🎶",
-
-    "Je tombe amoureux de toi encore et encore 💘",
-
-    "Tu es mon rêve réalisé, ma belle 🌙",
-
-    "Je veux fêter des millions d'anniversaires à tes côtés 🥰",
-
-    "Joyeux anniversaire, ma princesse 👑",
-
-    "Tu es le plus beau battement de mon cœur ❤️",
-
-    "17 raisons de t'aimer… et il m'en manque des millions 💗",
-
-    "Aucune distance, aucun jour gris ne peut rien contre toi 🌈",
-
-    "Tu es ma plus belle coïncidence du destin 🍀",
-
-    "Merci d'être toi, si parfaite pour moi 💞",
-
-    "Chaque seconde avec toi vaut une éternité ⏳",
-
-    "Tu es mon avenir préféré, mon présent parfait 💍"
-
-];
-
-const btn =
-    document.getElementById('btnFrase');
-
-const fraseEl =
-    document.getElementById('frase');
-
-let ultima = -1;
-
-btn.addEventListener(
-    'click',
-    function(e) {
-
-        let i;
-
-        do {
-
-            i =
-                Math.floor(
-                    Math.random() *
-                    frases.length
-                );
-
-        } while (
-            i === ultima &&
-            frases.length > 1
-        );
-
-        ultima = i;
-
-        fraseEl.classList.add(
-            'oculta'
-        );
-
-        setTimeout(
-            function() {
-
-                fraseEl.textContent =
-                    frases[i];
-
-                fraseEl.classList.remove(
-                    'oculta'
-                );
-
-            },
-            200
-        );
-
-        const x =
-            e.clientX ||
-            (window.innerWidth / 2);
-
-        const y =
-            e.clientY ||
-            (window.innerHeight / 2);
-
-        explosion(x, y);
-
-    }
-);
-
-
-/* =========================================================
-   EXPLOSION DE CŒURS
-========================================================= */
-
-function explosion(x, y, fuerza) {
-
-    const cantidad =
-        fuerza ||
-        (esMovil ? 7 : 11);
-
-    for (
-        let i = 0;
-        i < cantidad;
-        i++
-    ) {
-
-        const c =
-            document.createElement('div');
-
-        c.className =
-            'heart-burst';
-
-        c.textContent =
-            emojis[
-                Math.floor(
-                    Math.random() *
-                    emojis.length
-                )
-            ];
-
-        c.style.left =
-            x + 'px';
-
-        c.style.top =
-            y + 'px';
-
-        c.style.setProperty(
-            '--x',
-            (Math.random() * 180 - 90) + 'px'
-        );
-
-        c.style.setProperty(
-            '--y',
-            (-Math.random() * 180 - 50) + 'px'
-        );
-
-        c.style.animationDelay =
-            (Math.random() * .12) + 's';
-
-        document.body.appendChild(c);
-
-        setTimeout(
-            () => c.remove(),
-            1700
-        );
-    }
-}
-
-
-/* =========================================================
-   INSTALLATION PWA
-========================================================= */
-
-let deferredPrompt;
-
-const installBtn =
-    document.getElementById(
-        'installBtn'
-    );
-
-window.addEventListener(
-    'beforeinstallprompt',
-    function(e) {
-
-        e.preventDefault();
-
-        deferredPrompt = e;
-
-        installBtn.style.display =
-            'inline-flex';
-    }
-);
-
-installBtn.addEventListener(
-    'click',
-    async function() {
-
-        if (!deferredPrompt) {
-
-            alert(
-                "Pour l'installer : menu du navigateur (⋮) → « Ajouter à l'écran d'accueil » 💗"
-            );
-
-            return;
-        }
-
-        deferredPrompt.prompt();
-
-        await deferredPrompt.userChoice;
-
-        deferredPrompt = null;
-
-        installBtn.style.display =
-            'none';
-    }
-);
-
-window.addEventListener(
-    'appinstalled',
-    function() {
-
-        installBtn.style.display =
-            'none';
-    }
-);
-
-</script>
-
-</body>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> 
+ 
+<title>Joyeux Anniversaire, mon amour 💖</title> 
+ 
+<style> 
+ 
+* { 
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box; 
+    -webkit-tap-highlight-color:transparent; 
+} 
+ 
+html, 
+body { 
+    overscroll-behavior:none; 
+} 
+ 
+body { 
+    min-height:100vh; 
+    min-height:100dvh; 
+    background: 
+        radial-gradient(circle at 20% 10%, rgba(255,90,150,.28), transparent 45%), 
+        radial-gradient(circle at 85% 80%, rgba(180,60,220,.28), transparent 45%), 
+        linear-gradient(160deg,#180421 0%,#2b0736 45%,#46093a 100%); 
+    background-attachment:fixed; 
+    font-family:'Poppins',system-ui,sans-serif; 
+    color:#ffe8f2; 
+    overflow-x:hidden; 
+    padding:20px 12px 50px; 
+    display:flex; 
+    justify-content:center; 
+    -webkit-font-smoothing:antialiased; 
+} 
+ 
+/* ---------- étincelles qui montent ---------- */ 
+ 
+.spark { 
+    position:fixed; 
+    bottom:-40px; 
+    pointer-events:none; 
+    z-index:0; 
+    opacity:0; 
+    animation:floatUp linear infinite; 
+    filter:drop-shadow(0 0 6px rgba(255,110,170,.9)); 
+    will-change:transform, opacity; 
+} 
+ 
+@keyframes floatUp { 
+ 
+    0% { 
+        transform:translateY(0) rotate(0) scale(.7); 
+        opacity:0; 
+    } 
+ 
+    12% { 
+        opacity:.95; 
+    } 
+ 
+    85% { 
+        opacity:.65; 
+    } 
+ 
+    100% { 
+        transform:translateY(-115vh) rotate(360deg) scale(1.15); 
+        opacity:0; 
+    } 
+ 
+} 
+ 
+/* ---------- carte ---------- */ 
+ 
+.card { 
+    position:relative; 
+    z-index:2; 
+    width:100%; 
+    max-width:540px; 
+    background:rgba(255,255,255,.06); 
+    border:1px solid rgba(255,175,205,.3); 
+    border-radius:28px; 
+    padding:32px 20px 40px; 
+    backdrop-filter:blur(16px); 
+    -webkit-backdrop-filter:blur(16px); 
+    box-shadow: 
+        0 0 70px rgba(255,70,140,.28), 
+        inset 0 0 45px rgba(255,130,190,.08); 
+    text-align:center; 
+    animation:appear 1.2s ease both; 
+} 
+ 
+@keyframes appear { 
+ 
+    from { 
+        opacity:0; 
+        transform:translateY(28px); 
+    } 
+ 
+    to { 
+        opacity:1; 
+        transform:translateY(0); 
+    } 
+ 
+} 
+ 
+/* ---------- badge ---------- */ 
+ 
+.badge { 
+    display:inline-block; 
+    font-size:.7rem; 
+    letter-spacing:2.5px; 
+    text-transform:uppercase; 
+    color:#ffc2dd; 
+    border:1px solid rgba(255,175,205,.45); 
+    padding:6px 16px; 
+    border-radius:999px; 
+    margin-bottom:14px; 
+    background:rgba(255,90,150,.14); 
+    animation:shine 5s linear infinite; 
+    background-size:200% auto; 
+} 
+ 
+/* ---------- titre ---------- */ 
+ 
+h1 { 
+    font-family:'Great Vibes',cursive; 
+    font-size:clamp(2.4rem,9.5vw,4rem); 
+    line-height:1.05; 
+    background:linear-gradient( 
+        90deg, 
+        #ffd6e8, 
+        #ff5f9e, 
+        #ffb3d9, 
+        #ffd6e8 
+    ); 
+    background-size:300% auto; 
+    -webkit-background-clip:text; 
+    background-clip:text; 
+    color:transparent; 
+    animation:shine 5s linear infinite; 
+    margin-bottom:6px; 
+} 
+ 
+@keyframes shine { 
+    to { 
+        background-position:300% center; 
+    } 
+} 
+ 
+/* ---------- âge ---------- */ 
+ 
+.age { 
+    font-family:'Great Vibes',cursive; 
+    font-size:clamp(3.4rem,14vw,5.2rem); 
+    line-height:1; 
+    color:#ff87bb; 
+    text-shadow: 
+        0 0 24px rgba(255,90,150,.9), 
+        0 0 70px rgba(255,90,150,.55); 
+    animation:beat 2.2s ease-in-out infinite; 
+} 
+ 
+@keyframes beat { 
+ 
+    0%,100% { 
+        transform:scale(1); 
+    } 
+ 
+    50% { 
+        transform:scale(1.08); 
+    } 
+ 
+} 
+ 
+.sub { 
+    font-family:'Cormorant Garamond',serif; 
+    font-style:italic; 
+    font-size:1.05rem; 
+    color:#ffcbe1; 
+    font-weight:400; 
+    margin:8px 0 22px; 
+    letter-spacing:.3px; 
+} 
+ 
+/* ---------- compteur de jours ---------- */ 
+ 
+.counter { 
+    display:inline-flex; 
+    align-items:center; 
+    gap:8px; 
+    background:rgba(255,255,255,.08); 
+    border:1px solid rgba(255,175,205,.35); 
+    padding:8px 18px; 
+    border-radius:999px; 
+    font-size:.8rem; 
+    color:#ffd0e6; 
+    margin-bottom:26px; 
+    box-shadow:0 0 25px rgba(255,90,150,.25); 
+} 
+ 
+.counter b { 
+    color:#ff9ac6; 
+    font-weight:600; 
+    font-size:.95rem; 
+} 
+ 
+/* ---------- lettre ---------- */ 
+ 
+.letter { 
+    text-align:left; 
+    background:rgba(255,255,255,.055); 
+    border-left:3px solid #ff6aa8; 
+    border-radius:16px; 
+    padding:24px 20px; 
+    margin:0 auto 26px; 
+    font-family:'Cormorant Garamond',serif; 
+    font-weight:400; 
+    font-size:1.05rem; 
+    line-height:1.85; 
+    color:#fff0f7; 
+    box-shadow:inset 0 0 35px rgba(255,110,170,.08); 
+} 
+ 
+.letter p + p { 
+    margin-top:14px; 
+    text-indent:1.2em; 
+} 
+ 
+.letter p:first-of-type { 
+    text-indent:0; 
+} 
+ 
+.letter .firma { 
+    font-family:'Great Vibes',cursive; 
+    font-size:1.9rem; 
+    color:#ff9ac6; 
+    text-align:right; 
+    margin-top:22px; 
+    text-indent:0; 
+} 
+ 
+/* ---------- bouton phrases ---------- */ 
+ 
+.btn { 
+    display:inline-block; 
+    border:none; 
+    cursor:pointer; 
+    font-family:'Poppins',sans-serif; 
+    font-weight:600; 
+    font-size:1.05rem; 
+    color:#fff; 
+    padding:17px 42px; 
+    border-radius:999px; 
+    background:linear-gradient( 
+        135deg, 
+        #ff3d84, 
+        #ff6fb1, 
+        #c04bff 
+    ); 
+    background-size:200% 200%; 
+    box-shadow: 
+        0 10px 30px rgba(255,60,130,.55), 
+        0 0 0 0 rgba(255,90,150,.7); 
+    animation: 
+        pulse 2.4s infinite, 
+        shine 6s linear infinite; 
+    transition:transform .15s ease; 
+    position:relative; 
+    z-index:3; 
+    -webkit-user-select:none; 
+    user-select:none; 
+    touch-action:manipulation; 
+    letter-spacing:.3px; 
+} 
+ 
+.btn:active { 
+    transform:scale(.94); 
+} 
+ 
+@keyframes pulse { 
+ 
+    0% { 
+        box-shadow: 
+            0 10px 30px rgba(255,60,130,.55), 
+            0 0 0 0 rgba(255,90,150,.65); 
+    } 
+ 
+    70% { 
+        box-shadow: 
+            0 10px 30px rgba(255,60,130,.55), 
+            0 0 0 20px rgba(255,90,150,0); 
+    } 
+ 
+    100% { 
+        box-shadow: 
+            0 10px 30px rgba(255,60,130,.55), 
+            0 0 0 0 rgba(255,90,150,0); 
+    } 
+ 
+} 
+ 
+/* ---------- frases ---------- */ 
+ 
+.frase { 
+    min-height:70px; 
+    margin:22px auto 6px; 
+    max-width:440px; 
+    font-family:'Great Vibes',cursive; 
+    font-size:clamp(1.5rem,6vw,2.05rem); 
+    color:#ffd8ea; 
+    text-shadow:0 0 20px rgba(255,100,165,.75); 
+    transition: 
+        opacity .35s ease, 
+        transform .35s ease; 
+    line-height:1.35; 
+} 
+ 
+.frase.oculta { 
+    opacity:0; 
+    transform:translateY(10px); 
+} 
+ 
+/* ---------- explosions de cœurs ---------- */ 
+ 
+.heart-burst { 
+    position:fixed; 
+    z-index:5; 
+    pointer-events:none; 
+    font-size:1.3rem; 
+    animation:burst 1.5s ease-out forwards; 
+    will-change:transform, opacity; 
+} 
+ 
+@keyframes burst { 
+ 
+    0% { 
+        transform:translate(0,0) scale(.4); 
+        opacity:1; 
+    } 
+ 
+    100% { 
+        transform: 
+            translate(var(--x),var(--y)) 
+            scale(1.35); 
+        opacity:0; 
+    } 
+ 
+} 
+ 
+/* ---------- installation ---------- */ 
+ 
+.install-btn { 
+    display:none; 
+    margin-top:16px; 
+    background:linear-gradient( 
+        135deg, 
+        #ff3d84, 
+        #c04bff 
+    ); 
+    border:none; 
+    color:#fff; 
+    font-size:.85rem; 
+    padding:13px 28px; 
+    border-radius:999px; 
+    cursor:pointer; 
+    font-family:'Poppins',sans-serif; 
+    font-weight:600; 
+    box-shadow:0 8px 24px rgba(255,60,130,.55); 
+} 
+ 
+.footer { 
+    margin-top:24px; 
+    font-size:.72rem; 
+    color:rgba(255,200,225,.6); 
+    letter-spacing:1px; 
+} 
+ 
+/* ---------- móvil ---------- */ 
+ 
+@media (max-width:400px) { 
+ 
+    .card { 
+        padding:24px 14px 32px; 
+        border-radius:22px; 
+    } 
+ 
+    .letter { 
+        font-size:.98rem; 
+        padding:20px 16px; 
+    } 
+ 
+} 
+ 
+</style> 
+</head> 
+ 
+<body> 
+ 
+<div class="card"> 
+ 
+    <div class="badge"> 
+        Joyeux anniversaire 🎂 
+    </div> 
+ 
+    <h1> 
+        Mon amour, ma chérie 
+    </h1> 
+ 
+    <div class="age"> 
+        17 
+    </div> 
+ 
+    <p class="sub"> 
+        Hier c'était ton jour… et aujourd'hui je continue de te célébrer 💕 
+    </p> 
+ 
+    <div class="counter" id="counter"> 
+        <span>💗 Ensemble depuis</span> 
+        <b id="dias">—</b> 
+        <span>jours</span> 
+    </div> 
+ 
+    <div class="letter"> 
+ 
+        <p> 
+            Mon amour, 
+        </p> 
+ 
+        <p> 
+            Hier c'était ton anniversaire, et aujourd'hui je veux continuer à te célébrer, parce qu'il y a des personnes qui méritent plus qu'un seul jour de fête… et tu es l'une d'elles. Tu as eu <b>17 ans</b>, ma chérie, et tu ne sais pas à quel point je suis heureux de pouvoir t'accompagner dans ce si beau moment de ta vie. 
+        </p> 
+ 
+        <p> 
+            Je veux que tu saches que tu es la plus belle chose qui me soit arrivée. Depuis que tu es là, tout a plus de couleurs : les chansons sonnent mieux, les jours sont plus doux et même les instants les plus simples deviennent magiques. J'adore ta façon de rire, ta façon de me regarder et ces petits détails que toi seule possèdes. 
+        </p> 
+ 
+        <p> 
+            Merci de me laisser faire partie de tes jours, de me faire confiance et de m'offrir ton si bel amour. Si je pouvais, je t'offrirais le monde entier — mais en attendant, je te donne mon temps, mes câlins et tout mon cœur. 
+        </p> 
+ 
+        <p> 
+            Je te souhaite une année pleine de rêves réalisés, de rires, d'apprentissages et de moments inoubliables. Et je te promets d'être à tes côtés dans chacun d'eux, de te soutenir toujours, de prendre soin de toi et de te rappeler à quel point tu es incroyable. 
+        </p> 
+ 
+        <p> 
+            Joyeux anniversaire, ma princesse. Je t'aime de tout mon cœur. 💖 
+        </p> 
+ 
+        <div class="firma"> 
+            À toi pour toujours ❤️ 
+        </div> 
+ 
+    </div> 
+ 
+    <button class="btn" id="btnFrase"> 
+        Touche-moi 💕 
+    </button> 
+ 
+    <p class="frase" id="frase"> 
+        Appuie sur le bouton pour lire un message surprise 💌 
+    </p> 
+ 
+    <button class="install-btn" id="installBtn"> 
+        📲 Installer sur mon écran 
+    </button> 
+ 
+    <div class="footer"> 
+        Fait avec beaucoup d'amour, juste pour toi 💗 
+    </div> 
+ 
+</div> 
+ 
+<script> 
+ 
+/* ================= ÉTINCELLES ================= */ 
+ 
+const emojis = [ 
+    '❤️', 
+    '💖', 
+    '💕', 
+    '💗', 
+    '💓', 
+    '💞', 
+    '💘', 
+    '🌹', 
+    '💝', 
+    '✨' 
+]; 
+ 
+const esMovil = 
+    window.matchMedia('(max-width: 700px)').matches; 
+ 
+const cantidadCorazones = 
+    esMovil ? 16 : 28; 
+ 
+function crearSpark() { 
+ 
+    const h = document.createElement('div'); 
+ 
+    h.className = 'spark'; 
+ 
+    h.textContent = 
+        emojis[Math.floor(Math.random() * emojis.length)]; 
+ 
+    h.style.left = 
+        Math.random() * 100 + 'vw'; 
+ 
+    h.style.fontSize = 
+        (14 + Math.random() * 22) + 'px'; 
+ 
+    h.style.animationDuration = 
+        (10 + Math.random() * 8) + 's'; 
+ 
+    h.style.animationDelay = 
+        (Math.random() * 10) + 's'; 
+ 
+    document.body.appendChild(h); 
+} 
+ 
+for ( 
+    let i = 0; 
+    i < cantidadCorazones; 
+    i++ 
+) { 
+    crearSpark(); 
+} 
+ 
+ 
+/* ================= COMPTEUR DE JOURS ================= */ 
+ 
+/* 
+   Change cette date par le jour où vous avez commencé. 
+ 
+   Format : 
+   new Date(année, mois-1, jour) 
+ 
+   Exemple : 
+   14 février 2024 = 
+   new Date(2024, 1, 14) 
+*/ 
+ 
+const fechaInicio = 
+    new Date(2024, 1, 14); 
+ 
+const dias = 
+    Math.floor( 
+        (Date.now() - fechaInicio.getTime()) 
+        / 86400000 
+    ); 
+ 
+document.getElementById('dias').textContent = 
+    dias > 0 ? dias : 0; 
+ 
+ 
+/* ================= PHRASES ================= */ 
+ 
+const frases = [ 
+ 
+    "Tu es la plus belle chose qui me soit arrivée 💖", 
+ 
+    "17 ans et déjà la personne la plus incroyable que je connaisse 🌹", 
+ 
+    "Ton sourire est mon endroit préféré au monde 😍", 
+ 
+    "Merci d'exister, mon amour 💕", 
+ 
+    "Chaque jour à tes côtés est mon cadeau préféré 🎁", 
+ 
+    "Je t'aime plus que les mots ne peuvent le dire 💌", 
+ 
+    "Tu es ma personne préférée dans tout l'univers ✨", 
+ 
+    "Avec toi, jusqu'à l'infini et au-delà 💫", 
+ 
+    "Ton rire est ma chanson préférée 🎶", 
+ 
+    "Je tombe amoureux de toi encore et encore 💘", 
+ 
+    "Tu es mon rêve réalisé, ma belle 🌙", 
+ 
+    "Je veux fêter des millions d'anniversaires à tes côtés 🥰", 
+ 
+    "Joyeux anniversaire, ma princesse 👑", 
+ 
+    "Tu es le plus beau battement de mon cœur ❤️", 
+ 
+    "17 raisons de t'aimer… et il m'en manque des millions 💗", 
+ 
+    "Aucune distance, aucun jour gris ne peut rien contre toi 🌈", 
+ 
+    "Tu es ma plus belle coïncidence du destin 🍀", 
+ 
+    "Merci d'être toi, si parfaite pour moi 💞", 
+ 
+    "Chaque seconde avec toi vaut une éternité ⏳", 
+ 
+    "Tu es mon avenir préféré, mon présent parfait 💍" 
+ 
+]; 
+ 
+const btn = 
+    document.getElementById('btnFrase'); 
+ 
+const fraseEl = 
+    document.getElementById('frase'); 
+ 
+let ultima = -1; 
+ 
+btn.addEventListener('click', e => { 
+ 
+    let i; 
+ 
+    do { 
+        i = Math.floor( 
+            Math.random() * frases.length 
+        ); 
+    } 
+ 
+    while ( 
+        i === ultima && 
+        frases.length > 1 
+    ); 
+ 
+    ultima = i; 
+ 
+    fraseEl.classList.add('oculta'); 
+ 
+    setTimeout(() => { 
+ 
+        fraseEl.textContent = 
+            frases[i]; 
+ 
+        fraseEl.classList.remove('oculta'); 
+ 
+    }, 200); 
+ 
+    const x = 
+        e.clientX || 
+        (window.innerWidth / 2); 
+ 
+    const y = 
+        e.clientY || 
+        (window.innerHeight / 2); 
+ 
+    explosion(x, y); 
+ 
+}); 
+ 
+ 
+/* ================= EXPLOSION DE CŒURS ================= */ 
+ 
+function explosion(x, y, fuerza) { 
+ 
+    const cantidad = 
+        fuerza || 
+        (esMovil ? 9 : 13); 
+ 
+    for ( 
+        let i = 0; 
+        i < cantidad; 
+        i++ 
+    ) { 
+ 
+        const c = 
+            document.createElement('div'); 
+ 
+        c.className = 
+            'heart-burst'; 
+ 
+        c.textContent = 
+            emojis[ 
+                Math.floor( 
+                    Math.random() * emojis.length 
+                ) 
+            ]; 
+ 
+        c.style.left = 
+            x + 'px'; 
+ 
+        c.style.top = 
+            y + 'px'; 
+ 
+        c.style.setProperty( 
+            '--x', 
+            (Math.random() * 220 - 110) + 'px' 
+        ); 
+ 
+        c.style.setProperty( 
+            '--y', 
+            (-Math.random() * 200 - 60) + 'px' 
+        ); 
+ 
+        c.style.animationDelay = 
+            (Math.random() * .15) + 's'; 
+ 
+        document.body.appendChild(c); 
+ 
+        setTimeout( 
+            () => c.remove(), 
+            1700 
+        ); 
+ 
+    } 
+} 
+ 
+ 
+/* ================= INSTALLATION ================= */ 
+ 
+let deferredPrompt; 
+ 
+const installBtn = 
+    document.getElementById('installBtn'); 
+ 
+window.addEventListener( 
+    'beforeinstallprompt', 
+    (e) => { 
+ 
+        e.preventDefault(); 
+ 
+        deferredPrompt = e; 
+ 
+        installBtn.style.display = 
+            'inline-block'; 
+ 
+    } 
+); 
+ 
+installBtn.addEventListener( 
+    'click', 
+    async () => { 
+ 
+        if (!deferredPrompt) { 
+ 
+            alert( 
+                "Pour l'installer : menu du navigateur (⋮) → « Ajouter à l'écran d'accueil » 💗" 
+            ); 
+ 
+            return; 
+        } 
+ 
+        deferredPrompt.prompt(); 
+ 
+        await deferredPrompt.userChoice; 
+ 
+        deferredPrompt = null; 
+ 
+        installBtn.style.display = 
+            'none'; 
+ 
+    } 
+); 
+ 
+window.addEventListener( 
+    'appinstalled', 
+    () => { 
+ 
+        installBtn.style.display = 
+            'none'; 
+ 
+    } 
+); 
+ 
+</script> 
+ 
+</body> 
 </html>
-```
-
-Con este cambio, en móvil la tarjeta ocupa mejor el ancho, la carta tiene un tamaño de letra más cómodo, el botón no se sale de la pantalla, se respetan las zonas de seguridad del móvil y se reducen los corazones flotantes para que no vaya lento.
-
-**Importante:** no he cambiado la estructura de tu página ni la carta; he centrado los cambios en que se vea y funcione correctamente en pantallas pequeñas.
