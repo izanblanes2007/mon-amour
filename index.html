@@ -1,767 +1,182 @@
 ```html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ffb6d9">
-<title>Felices 3 meses, mi amor 💗</title>
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --pink: #ff75ad;
-  --light-pink: #ffe0ef;
-  --purple: #b58aff;
-  --dark: #57264c;
-}
-
-body {
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  color: var(--dark);
-  background: linear-gradient(135deg, #ffe5f1, #f0e2ff, #fff0f6);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  transition: transform .25s, box-shadow .25s;
-}
-
-button:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 22px #d45b9b35;
-}
-
-button:active {
-  transform: scale(.96);
-}
-
-.hidden {
-  display: none !important;
-}
-
-#particles {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.particle {
-  position: absolute;
-  bottom: -50px;
-  animation: floatUp linear forwards;
-  opacity: .7;
-}
-
-@keyframes floatUp {
-  0% { transform: translateY(0) rotate(0); opacity: 0; }
-  15% { opacity: .8; }
-  85% { opacity: .7; }
-  100% { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
-}
-
-.screen {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 14px;
-}
-
-.panel {
-  width: min(100%, 760px);
-  padding: clamp(22px, 5vw, 45px);
-  background: #ffffffd9;
-  border: 1px solid #ffffff;
-  border-radius: 28px;
-  box-shadow: 0 15px 50px #a8589020;
-  text-align: center;
-  backdrop-filter: blur(12px);
-  animation: appear .8s ease;
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-h1 {
-  font-size: clamp(2rem, 7vw, 3.4rem);
-  line-height: 1.2;
-  margin: 16px 0;
-  color: #d74791;
-}
-
-h2 {
-  color: #c64e94;
-  margin-bottom: 18px;
-  font-size: clamp(1.5rem, 5vw, 2.2rem);
-}
-
-h3 {
-  margin-bottom: 10px;
-  color: #bd4f91;
-}
-
-p {
-  line-height: 1.85;
-  margin: 12px 0;
-}
-
-.heart {
-  font-size: clamp(4rem, 15vw, 7rem);
-  display: inline-block;
-  animation: heartbeat 1.4s infinite;
-  filter: drop-shadow(0 8px 12px #ef78ad55);
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  15% { transform: scale(1.12); }
-  30% { transform: scale(1); }
-  45% { transform: scale(1.08); }
-}
-
-.primary {
-  background: linear-gradient(135deg, #ff78b5, #c18bff);
-  color: white;
-  padding: 15px 24px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 1rem;
-  margin: 10px 5px;
-  box-shadow: 0 6px 18px #d45b9b30;
-}
-
-.secondary {
-  background: white;
-  color: #bd4f91;
-  border: 1px solid #ffc4df;
-  padding: 13px 18px;
-  border-radius: 22px;
-  font-size: .95rem;
-  margin: 6px;
-}
-
-.letter {
-  text-align: left;
-  background: linear-gradient(145deg, #fff9fc, #fff0f7);
-  padding: clamp(18px, 4vw, 32px);
-  border-radius: 22px;
-  border: 1px solid #ffd1e5;
-  line-height: 1.9;
-  margin: 20px 0;
-}
-
-.letter p {
-  margin-bottom: 16px;
-}
-
-.signature {
-  color: #d74791;
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.1rem;
-}
-
-.button-area {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin: 24px 0;
-}
-
-#phrase {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  font-size: 1.2rem;
-  color: #bd3986;
-  font-weight: bold;
-  line-height: 1.7;
-  animation: appear .4s ease;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin: 25px 0;
-}
-
-.month-card {
-  padding: 22px 16px;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #fff0f7, #f5edff);
-  border: 1px solid #f8d4e8;
-  transition: transform .3s;
-}
-
-.month-card:hover {
-  transform: translateY(-5px);
-}
-
-.month-icon {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-}
-
-.secret {
-  padding: 20px;
-  background: #fff0f8;
-  border-radius: 20px;
-  margin: 18px 0;
-  animation: appear .5s ease;
-}
-
-.game-box {
-  background: linear-gradient(145deg, #fff2f8, #f4edff);
-  border: 1px solid #f6cfe5;
-  border-radius: 20px;
-  padding: 16px;
-  margin-top: 18px;
-}
-
-#game {
-  position: relative;
-  height: 300px;
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: 15px;
-  background: #ffffffb8;
-  border: 1px dashed #e7a4cb;
-  margin-top: 15px;
-  touch-action: manipulation;
-}
-
-.game-heart {
-  position: absolute;
-  background: transparent;
-  font-size: 30px;
-  padding: 5px;
-  animation: heartbeat 1s infinite;
-}
-
-.score {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin: 12px;
-}
-
-footer {
-  margin-top: 25px;
-  font-size: .85rem;
-  color: #a85a8a;
-}
-
-@media (max-width: 480px) {
-  .panel { border-radius: 22px; }
-  .primary { width: 100%; margin: 7px 0; }
-  .secondary { max-width: 100%; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt - Nos 3 mois d'amour 💗</title>
 </head>
-
 <body>
-<div id="particles" aria-hidden="true"></div>
 
-<!-- PANTALLA DE BIENVENIDA -->
-<section id="welcome" class="screen">
-  <div class="panel">
-    <div class="heart">💗</div>
-    <p>Un pequeño regalo hecho especialmente para ti...</p>
-    <h1>Felices 3 meses, mi amor</h1>
-    <p>
-      He preparado algo que viene directamente de mi corazón.
-      Espero que cada parte te saque una sonrisa. 🥹💕
-    </p>
-    <button class="primary" onclick="openGift()">
-      Abrir nuestro regalo 🎁
-    </button>
-  </div>
-</section>
+<!-- PROMPT POUR LE GÉNÉRATEUR DE SITE WEB -->
 
-<!-- CONTENIDO PRINCIPAL -->
-<main id="main" class="screen hidden">
-  <div class="panel">
-    <div class="heart">💖</div>
-    <h1>Para mi niña bonita</h1>
-    <p>Tres meses de nosotros, y esto es solo el comienzo. 🌷</p>
-
-    <article class="letter" id="mainLetter">
-      <h2>Una carta para ti 💌</h2>
-
-      <p>Mi amor,</p>
-
-      <p>
-        Hoy cumplimos tres meses juntos y quería hacerte algo especial,
-        algo que pudieras guardar y volver a abrir cuando quisieras
-        recordar lo mucho que significas para mí. ❤️
-      </p>
-
-      <p>
-        Puede que a veces no encuentre las palabras perfectas para
-        explicarte todo lo que siento, pero quiero que sepas que tenerte
-        en mi vida significa muchísimo para mí. Me encanta poder hablar
-        contigo, compartir momentos y descubrir poco a poco todo lo que
-        hace que seas tú.
-      </p>
-
-      <p>
-        No necesitamos tener una historia perfecta para que sea bonita.
-        Lo importante para mí es que podamos seguir conociéndonos,
-        escuchándonos, cuidándonos y creando recuerdos que algún día
-        nos hagan sonreír al recordarlos. 🫶🏻
-      </p>
-
-      <p>
-        Si alguna vez estamos lejos, quiero que recuerdes que un mensaje
-        tuyo puede alegrarme el día y que, aunque no siempre podamos
-        estar juntos físicamente, podemos seguir compartiendo cariño,
-        ilusión y momentos especiales.
-      </p>
-
-      <p>
-        Gracias por estos tres meses, por ser parte de mi vida y por
-        todas las sonrisas que hemos compartido. Me hace ilusión pensar
-        en todo lo bonito que todavía podemos vivir juntos.
-      </p>
-
-      <p>
-        No sé cómo será cada capítulo de nuestra historia, pero me
-        gustaría seguir escribiéndola contigo, con cariño, sinceridad
-        y muchas ganas de hacer las cosas bien. 💗
-      </p>
-
-      <p class="signature">
-        Te elegiría a ti una y mil veces más, mi amor.
-        Felices tres meses juntos. 💗🫶🏻
-      </p>
-    </article>
-
-    <h2>Pequeñas sorpresas para ti 🎀</h2>
-
-    <div class="button-area">
-      <button class="secondary" onclick="loveSurprise()">
-        ¿Sabes cuánto te quiero? 💗
-      </button>
-
-      <button class="secondary" onclick="missYou()">
-        Si me echas de menos 🥹
-      </button>
-
-      <button class="secondary" onclick="sendKiss()">
-        Un beso para ti 💋
-      </button>
-
-      <button class="secondary" onclick="toggleSecret()">
-        Nuestro secreto 🤫
-      </button>
-
-      <button class="secondary" onclick="hugSurprise()">
-        Un abrazo virtual 🫂
-      </button>
-    </div>
-
-    <div id="surprise" class="secret hidden" aria-live="polite"></div>
-
-    <hr style="border:0;border-top:1px solid #f4c9df;margin:30px 0">
-
-    <!-- TRES MESES -->
-    <h2>Nuestros primeros tres meses 💞</h2>
-
-    <div class="cards">
-      <div class="month-card">
-        <div class="month-icon">🌷</div>
-        <h3>Mes 1</h3>
-        <p>
-          El comienzo de algo especial, una nueva historia y muchas
-          razones para sonreír.
-        </p>
-      </div>
-
-      <div class="month-card">
-        <div class="month-icon">💞</div>
-        <h3>Mes 2</h3>
-        <p>
-          Más conversaciones, más momentos compartidos y nuevas cosas
-          que descubrir el uno del otro.
-        </p>
-      </div>
-
-      <div class="month-card">
-        <div class="month-icon">❤️</div>
-        <h3>Mes 3</h3>
-        <p>
-          Tres meses de nosotros, de cariño y de ilusión por todo lo
-          bonito que todavía podemos vivir.
-        </p>
-      </div>
-    </div>
-
-    <hr style="border:0;border-top:1px solid #f4c9df;margin:30px 0">
-
-    <!-- FRASES ALEATORIAS -->
-    <h2>Un montón de razones para quererte 💌</h2>
-    <p>Pulsa el botón cada vez que quieras leer algo bonito.</p>
-
-    <div id="phrase" aria-live="polite">
-      Tengo un pequeño mensaje guardado para ti... 💗
-    </div>
-
-    <button class="primary" onclick="newPhrase()">
-      Pulsa aquí, mi amor 💗
-    </button>
-
-    <hr style="border:0;border-top:1px solid #f4c9df;margin:30px 0">
-
-    <!-- MINIJUEGO -->
-    <h2>Atrapa los corazones 💘</h2>
-    <p>
-      Toca los corazones que aparezcan y consigue 10 puntos.
-      Cada uno lleva un poquito de cariño para ti. 🥹
-    </p>
-
-    <div class="game-box">
-      <div class="score">
-        Corazones: <span id="score">0</span> / 10
-      </div>
-
-      <div id="game">
-        <p style="padding:20px">
-          Pulsa “Empezar juego” para recoger tus corazones. 💗
-        </p>
-      </div>
-
-      <button class="primary" onclick="startGame()">
-        Empezar juego 🎮
-      </button>
-
-      <p id="gameMessage" aria-live="polite"></p>
-    </div>
-
-    <hr style="border:0;border-top:1px solid #f4c9df;margin:35px 0">
-
-    <!-- FINAL -->
-    <div class="heart">💖</div>
-    <h1>Y esto solo es el comienzo...</h1>
+<main>
+    <h1>💗 PROMPT : SITE WEB POUR NOS 3 MOIS ENSEMBLE</h1>
 
     <p>
-      Felices tres meses, mi niña. Gracias por ser tú, por formar parte
-      de mi vida y por regalarme tantos motivos para sonreír.
-      Ojalá podamos seguir sumando momentos, recuerdos, abrazos y
-      muchísimas sonrisas juntos.
+        Crée un site web romantique, interactif et magnifique pour
+        célébrer nos trois mois de relation. Je veux un cadeau numérique
+        personnalisé pour ma copine, avec une lettre d'amour, des cœurs
+        flottants, des emojis visibles, des animations et des boutons
+        interactifs.
     </p>
 
+    <h2>1. Design et ambiance 🎨</h2>
+    <ul>
+        <li>Utilise des couleurs rose pastel, violet clair et blanc.</li>
+        <li>Ajoute des dégradés, des ombres douces et des cartes arrondies.</li>
+        <li>Crée des animations romantiques et des transitions fluides.</li>
+        <li>Adapte parfaitement le site aux téléphones et aux ordinateurs.</li>
+        <li>Utilise les emojis 💗 💖 💕 ❤️ 🫶🏻 💋 🥹 🫂 🌷 🌸 ✨ 🎁 💌.</li>
+    </ul>
+
+    <h2>2. Affichage correct des emojis ❤️</h2>
     <p>
-      Esta web es pequeñita comparada con todo lo que me gustaría
-      expresarte, pero la he preparado pensando en ti.
-      Espero que, cuando la vuelvas a abrir, recuerdes lo especial
-      que es para mí celebrar estos tres meses contigo. 💗
+        Corrige tous les problèmes d'affichage des emojis dans le site.
+        Aucun emoji ne doit être invisible, remplacé par un carré ou
+        affiché comme un caractère incorrect.
+    </p>
+    <ul>
+        <li>Utilise l'encodage UTF-8.</li>
+        <li>Utilise les polices de secours Apple Color Emoji, Segoe UI Emoji
+            et Noto Color Emoji.</li>
+        <li>Vérifie les emojis dans les titres, les boutons, les cartes,
+            les messages aléatoires et le mini-jeu.</li>
+        <li>Si certains emojis ne sont pas pris en charge, utilise des
+            illustrations SVG intégrées comme solution de secours.</li>
+        <li>Ne masque jamais les emojis avec du CSS.</li>
+    </ul>
+
+    <h2>3. Écran d'accueil 🎁</h2>
+    <p>
+        Affiche un grand cœur animé et le titre :
+        « Joyeux 3 mois, mon amour 💗 »
+    </p>
+    <p>
+        Ajoute le texte :
+        « Je t'ai préparé une petite surprise qui vient directement
+        de mon cœur. J'espère qu'elle te fera sourire. 🥹💖 »
+    </p>
+    <p>
+        Ajoute un bouton « Ouvrir notre cadeau 🎁 ».
+        Au clic, affiche une animation de cœurs et révèle la lettre d'amour.
     </p>
 
-    <h2>Te quiero muchísimo, mi amor. 💋</h2>
+    <h2>4. Lettre d'amour 💌</h2>
+    <p>
+        Écris une lettre en français naturel, tendre et sincère, qui parle
+        de nos trois mois, de l'importance de ma copine dans ma vie,
+        des moments partagés et de mon envie de continuer à construire
+        notre histoire ensemble.
+    </p>
+    <p>
+        Ne crée pas de souvenirs personnels ni de dates qui ne sont pas connus.
+        Termine par :
+        « Je te choisirais encore et encore, mon amour.
+        Joyeux trois mois à nous deux. Je t'aime très fort. 💗🫶🏻 »
+    </p>
 
-    <button class="primary" onclick="backToLetter()">
-      Volver a abrir mi corazón 💌
-    </button>
+    <h2>5. Boutons romantiques interactifs 💖</h2>
+    <ul>
+        <li>« Tu sais à quel point je t'aime ? 💗 » : affiche un message aléatoire.</li>
+        <li>« Si je te manque, clique ici 🥹 » : affiche un message tendre.</li>
+        <li>« Un bisou pour toi 💋 » : déclenche une animation de bisous.</li>
+        <li>« Notre petit secret 🤫 » : révèle une carte cachée.</li>
+        <li>« Un câlin virtuel 🫂 » : affiche deux cœurs qui se rapprochent.</li>
+    </ul>
+    <p>
+        Certains boutons peuvent bouger légèrement, mais aucun bouton
+        important ne doit devenir impossible à cliquer.
+    </p>
 
-    <footer>
-      Hecho con mucho cariño, solo para ti. 💗
-    </footer>
-  </div>
+    <h2>6. Nos trois mois 🌷</h2>
+    <p>
+        Crée trois cartes animées :
+    </p>
+    <ul>
+        <li>Mois 1 — Le début 🌷</li>
+        <li>Mois 2 — De plus en plus proches 💞</li>
+        <li>Mois 3 — Nous deux ❤️</li>
+    </ul>
+    <p>
+        Chaque carte doit contenir un court message romantique en français.
+    </p>
+
+    <h2>7. Bouton avec 40 messages romantiques 💌</h2>
+    <p>
+        Crée un bouton « Clique ici, mon amour 💗 ».
+        Chaque clic doit afficher une phrase romantique différente
+        parmi au moins 40 phrases enregistrées en JavaScript.
+    </p>
+    <ul>
+        <li>Ne répète pas deux fois de suite la même phrase.</li>
+        <li>Ajoute une animation à l'apparition du message.</li>
+        <li>Affiche des cœurs autour du texte.</li>
+        <li>Le bouton doit fonctionner sans limite de clics.</li>
+        <li>Tous les emojis doivent être correctement visibles.</li>
+    </ul>
+
+    <h2>8. Mini-jeu : attrape 10 cœurs 💘</h2>
+    <p>
+        Crée un mini-jeu très facile dans lequel ma copine doit toucher
+        dix cœurs pour gagner.
+    </p>
+    <ul>
+        <li>Les cœurs doivent être grands et faciles à toucher.</li>
+        <li>Chaque cœur reste immobile jusqu'à ce qu'il soit touché.</li>
+        <li>Aucune limite de temps.</li>
+        <li>Aucun point perdu.</li>
+        <li>Aucun cœur ne doit disparaître automatiquement.</li>
+        <li>Chaque clic valide ajoute un point.</li>
+        <li>Affiche le score : « Cœurs : 0/10 ».</li>
+        <li>Le jeu doit fonctionner à la souris et sur écran tactile.</li>
+        <li>Ajoute un bouton pour recommencer la partie.</li>
+    </ul>
+    <p>
+        Quand le score atteint 10/10, affiche une animation de cœurs
+        et le message :
+        « Bravo, tu as attrapé 10 cœurs ! Mais il y en a un qui est déjà
+        entièrement à toi. Je t'aime très fort ! ❤️🥹💋 »
+    </p>
+
+    <h2>9. Final romantique 💖</h2>
+    <p>
+        Crée une dernière section avec un grand cœur animé et le titre :
+        « Et ce n'est que le début, mon amour… 💗 »
+    </p>
+    <p>
+        Ajoute un message romantique pour célébrer nos trois mois et
+        termine par :
+        « Joyeux trois mois, ma chérie. Merci d'être toi et de faire partie
+        de ma vie. Je t'aime énormément. 💗🫶🏻💋 »
+    </p>
+    <p>
+        Ajoute un bouton « Relire ma lettre d'amour 💌 » qui ramène
+        au début de la lettre.
+    </p>
+
+    <h2>10. Exigences techniques 💻</h2>
+    <ul>
+        <li>Tout le projet doit être dans un seul fichier index.html.</li>
+        <li>Utilise HTML5, CSS3 et JavaScript pur.</li>
+        <li>Aucun framework et aucune installation supplémentaire.</li>
+        <li>Le site doit fonctionner sur GitHub Pages.</li>
+        <li>Tous les boutons doivent avoir une vraie fonction.</li>
+        <li>Le code doit être complet et sans erreur.</li>
+        <li>Le site doit être responsive et rapide.</li>
+        <li>Respecte les préférences de réduction des animations.</li>
+    </ul>
+
+    <h2>INSTRUCTION FINALE</h2>
+    <p>
+        Génère directement le code complet du fichier index.html.
+        Ne fournis pas de simples exemples ni des explications à la place
+        du code. Vérifie que les emojis s'affichent correctement et que
+        le mini-jeu des dix cœurs est facile à gagner.
+        Le résultat doit être prêt à être publié sur GitHub Pages.
+    </p>
 </main>
 
-<script>
-const particles = document.getElementById("particles");
-const reducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
-const floatingEmojis = ["💗", "💕", "💖", "✨", "🌸", "❤️", "🫶🏻"];
-
-function createParticle() {
-  if (reducedMotion || document.hidden) return;
-
-  const particle = document.createElement("span");
-  particle.className = "particle";
-  particle.textContent =
-    floatingEmojis[Math.floor(Math.random() * floatingEmojis.length)];
-
-  particle.style.left = Math.random() * 100 + "vw";
-  particle.style.fontSize = (14 + Math.random() * 22) + "px";
-  particle.style.animationDuration = (6 + Math.random() * 7) + "s";
-
-  particles.appendChild(particle);
-
-  setTimeout(() => particle.remove(), 14000);
-}
-
-if (!reducedMotion) {
-  setInterval(createParticle, 450);
-}
-
-function burst(count = 16) {
-  if (reducedMotion) return;
-
-  for (let i = 0; i < count; i++) {
-    setTimeout(() => {
-      const heart = document.createElement("span");
-      heart.className = "particle";
-      heart.textContent = ["💗", "💖", "💕", "💋"][
-        Math.floor(Math.random() * 4)
-      ];
-      heart.style.left = (10 + Math.random() * 80) + "vw";
-      heart.style.fontSize = (20 + Math.random() * 20) + "px";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-      particles.appendChild(heart);
-      setTimeout(() => heart.remove(), 7000);
-    }, i * 70);
-  }
-}
-
-function openGift() {
-  document.getElementById("welcome").classList.add("hidden");
-  document.getElementById("main").classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  burst(28);
-}
-
-function showSurprise(message, emoji = "💗") {
-  const box = document.getElementById("surprise");
-  box.classList.remove("hidden");
-  box.innerHTML = `<div style="font-size:2rem">${emoji}</div><p>${message}</p>`;
-  burst(12);
-}
-
-function loveSurprise() {
-  const messages = [
-    "Muchísimo más de lo que a veces sé explicar con palabras. 💗",
-    "Lo suficiente como para querer seguir descubriendo nuestra historia. 💞",
-    "Tanto como para querer que hoy tengas una sonrisa preciosa. 🥹",
-    "De una forma que hace que nuestros pequeños momentos sean especiales. ❤️"
-  ];
-
-  showSurprise(
-    messages[Math.floor(Math.random() * messages.length)],
-    "💖"
-  );
-}
-
-function missYou() {
-  showSurprise(
-    "Ojalá pudiera darte un abrazo ahora mismo y quedarme un ratito más contigo. 🫂💖",
-    "🫂"
-  );
-}
-
-function sendKiss() {
-  showSurprise(
-    "Te mando un montón de besitos virtuales. ¡Atrapa todos los que puedas! 💋💋💋",
-    "💋"
-  );
-  burst(30);
-}
-
-function hugSurprise() {
-  showSurprise(
-    "Imagina un abrazo de esos que te hacen sentir que, por un momento, todo está bien. 🫶🏻",
-    "🫂"
-  );
-}
-
-function toggleSecret() {
-  const box = document.getElementById("surprise");
-
-  if (!box.classList.contains("hidden") &&
-      box.dataset.secret === "true") {
-    box.classList.add("hidden");
-    box.dataset.secret = "false";
-    return;
-  }
-
-  showSurprise(
-    "Mi pequeño secreto es que me hace ilusión seguir creando recuerdos contigo y descubrir todo lo bonito que nos queda por vivir. 🤫💗",
-    "💌"
-  );
-
-  box.dataset.secret = "true";
-}
-
-const phrases = [
-  "Si tuviera que volver a empezar, me encantaría volver a conocerte. 💖",
-  "Eres una de las cosas más bonitas que han llegado a mi vida. 🥹",
-  "Me encanta poder compartir un trocito de mi día contigo. 💗",
-  "Tres meses contigo y todavía me sacas sonrisas. ❤️",
-  "No necesito un día perfecto si puedo compartir contigo un momento bonito. 🫶🏻",
-  "Ojalá pudiera convertir cada mensaje en un abrazo. 🫂",
-  "Gracias por formar parte de mi historia, mi niña. 🌷",
-  "Hay mensajes que alegran el día, y luego están los tuyos. 💞",
-  "Si sonrío mirando el móvil, puede que tú tengas algo que ver. 😊",
-  "Qué bonito es tener a alguien con quien compartir tantas cosas. 💗",
-  "Mi parte favorita es seguir descubriendo cómo eres. 🌸",
-  "Espero que hoy encuentres una razón más para sonreír. 💖",
-  "No hacen falta grandes planes para crear recuerdos bonitos. ✨",
-  "Me hace ilusión pensar en todos los momentos que nos quedan. ❤️",
-  "Eres mi persona favorita para recibir una sorpresa digital. 🎁",
-  "Si pudiera enviarte algo ahora mismo, sería un abrazo enorme. 🫂",
-  "Tres meses son solo el comienzo de nuestra historia. 💌",
-  "Ojalá esta pequeña web te saque una sonrisa de las tuyas. 🥹",
-  "Te mereces cariño, tranquilidad y muchísimas cosas bonitas. 🌷",
-  "Hay días normales que se vuelven especiales por una conversación. 💕",
-  "Quiero que nunca te falten motivos para sonreír. 💗",
-  "Me gusta la idea de seguir sumando meses contigo. 🫶🏻",
-  "Un pequeño recordatorio: eres alguien muy especial para mí. ❤️",
-  "Si esta página tuviera voz, te diría que te quiero muchísimo. 💋",
-  "A veces lo más bonito es sentirse escuchado y querido. 💞",
-  "Gracias por cada momento bonito que hemos compartido. 🌸",
-  "Ojalá pudiera estar ahí para celebrar estos tres meses contigo. 🫂",
-  "Tienes un lugar muy bonito en mi corazón. 💖",
-  "Hoy tenemos una excusa perfecta para celebrar lo nuestro. 🎉",
-  "Me encanta que esta pequeña sorpresa sea solo para ti. 💌",
-  "Quiero seguir aprendiendo a quererte de la forma que mereces. ❤️",
-  "Que nunca nos falten las ganas de hablar y entendernos. 🫶🏻",
-  "Si esta frase te hace sonreír, mi pequeña misión está cumplida. 😊",
-  "Te mando cariño en forma de letras y corazones. 💗",
-  "Ojalá algún día podamos recordar estos tres meses con una sonrisa. 🌷",
-  "Cada historia tiene su propio ritmo, y me gusta descubrir el nuestro. 💞",
-  "No tienes que hacer nada especial para merecer que te quieran bonito. 💖",
-  "Un corazón para ti, otro para tus sonrisas y otro para nuestros recuerdos. ❤️",
-  "Mi regalo es sencillo, pero lo he preparado pensando en ti. 🎁",
-  "Felices tres meses, mi amor. Gracias por compartir esta parte del camino conmigo. 💗"
-];
-
-let lastPhraseIndex = -1;
-
-function newPhrase() {
-  let index;
-
-  do {
-    index = Math.floor(Math.random() * phrases.length);
-  } while (phrases.length > 1 && index === lastPhraseIndex);
-
-  lastPhraseIndex = index;
-
-  const area = document.getElementById("phrase");
-  area.style.animation = "none";
-  void area.offsetWidth;
-  area.textContent = phrases[index];
-  area.style.animation = "appear .4s ease";
-
-  burst(8);
-}
-
-function backToLetter() {
-  document.getElementById("mainLetter").scrollIntoView({
-    behavior: reducedMotion ? "auto" : "smooth",
-    block: "start"
-  });
-  burst(12);
-}
-
-/* MINIJUEGO */
-
-let score = 0;
-let gameTimer = null;
-let gameActive = false;
-
-function startGame() {
-  clearTimeout(gameTimer);
-
-  score = 0;
-  gameActive = true;
-
-  document.getElementById("score").textContent = score;
-  document.getElementById("gameMessage").textContent = "";
-
-  const game = document.getElementById("game");
-  game.innerHTML = "";
-
-  spawnHeart();
-}
-
-function spawnHeart() {
-  if (!gameActive) return;
-
-  const game = document.getElementById("game");
-  game.innerHTML = "";
-
-  const heart = document.createElement("button");
-  heart.className = "game-heart";
-  heart.type = "button";
-  heart.textContent = ["💗", "💖", "💕", "❤️"][
-    Math.floor(Math.random() * 4)
-  ];
-
-  const maxX = Math.max(0, game.clientWidth - 50);
-  const maxY = Math.max(0, game.clientHeight - 50);
-
-  heart.style.left = Math.random() * maxX + "px";
-  heart.style.top = Math.random() * maxY + "px";
-  heart.setAttribute("aria-label", "Recoger corazón");
-
-  heart.addEventListener("click", () => {
-    if (!gameActive) return;
-
-    score++;
-    document.getElementById("score").textContent = score;
-
-    if (score >= 10) {
-      gameActive = false;
-      game.innerHTML = '<div style="padding:45px 12px;font-size:2.5rem">💗💖💕</div>';
-      document.getElementById("gameMessage").textContent =
-        "¡Has atrapado 10 corazones! Aunque hay uno que ya es completamente tuyo. ❤️🥹";
-      burst(25);
-      return;
-    }
-
-    burst(3);
-    spawnHeart();
-  });
-
-  game.appendChild(heart);
-
-  gameTimer = setTimeout(() => {
-    if (!gameActive) return;
-
-    game.innerHTML =
-      '<p style="padding:30px">¡El corazón se ha escapado! Pulsa para intentarlo otra vez. 💗</p>';
-
-    gameActive = false;
-
-    const retry = document.createElement("button");
-    retry.className = "secondary";
-    retry.textContent = "Intentarlo de nuevo 💕";
-    retry.onclick = startGame;
-    game.appendChild(retry);
-  }, 3000);
-}
-</script>
 </body>
 </html>
 ```
