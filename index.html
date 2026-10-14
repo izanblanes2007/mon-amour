@@ -2,527 +2,742 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nos 3 mois ensemble 💗</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#210b2b">
+<title>Nos 3 mois ensemble 💗</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --pink: #ff9dcc;
+  --light: #ffe0ef;
+  --purple: #35113f;
+  --dark: #16071e;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: #fff;
-      background: linear-gradient(135deg, #16051f, #50144f, #b52b70);
-      overflow-x: hidden;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    #hearts {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    .floating-heart {
-      position: absolute;
-      bottom: -40px;
-      animation: floatUp linear forwards;
-      opacity: 0.8;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: white;
+  background:
+    radial-gradient(ellipse at top, #64205e 0%, transparent 55%),
+    linear-gradient(145deg, #16071e, #321035 55%, #641b53);
+  overflow-x: hidden;
+}
 
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      15% { opacity: 0.8; }
-      to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
+button {
+  font: inherit;
+}
 
-    .container {
-      position: relative;
-      z-index: 1;
-      width: min(92%, 760px);
-      margin: 35px auto;
-      padding: 28px;
-      text-align: center;
-      background: rgba(30, 5, 35, 0.78);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
-      box-shadow: 0 0 35px rgba(255, 80, 170, 0.2);
-      backdrop-filter: blur(8px);
-    }
+.hidden {
+  display: none !important;
+}
 
-    h1 {
-      color: #ffacd5;
-      font-size: clamp(2rem, 6vw, 3rem);
-      margin-bottom: 8px;
-    }
+#particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
 
-    h2 {
-      color: #ffc6e4;
-    }
+.particle {
+  position: absolute;
+  bottom: -45px;
+  animation: floatHeart linear forwards;
+  opacity: 0.8;
+  user-select: none;
+}
 
-    .subtitle {
-      color: #ffe2f0;
-      font-size: 1.1rem;
-    }
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-115vh) rotate(300deg);
+    opacity: 0;
+  }
+}
 
-    .card {
-      margin-top: 24px;
-      padding: 22px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(92%, 760px);
+  margin: 35px auto;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 25px;
+  background: rgba(24, 7, 30, .86);
+  box-shadow: 0 0 40px rgba(255, 105, 190, .12);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
 
-    .letter {
-      line-height: 1.9;
-      text-align: left;
-      white-space: pre-line;
-      color: #fff0f7;
-      font-size: 1.03rem;
-    }
+h1 {
+  color: var(--pink);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.2;
+  margin: 12px 0;
+}
 
-    button {
-      border: none;
-      padding: 12px 18px;
-      margin: 6px;
-      border-radius: 25px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      cursor: pointer;
-      color: #53113e;
-      background: linear-gradient(135deg, #ffc4e2, #ff86c4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+h2 {
+  color: #ffc4e1;
+  margin-top: 0;
+}
 
-    button:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 5px 18px rgba(255, 100, 190, 0.35);
-    }
+p {
+  line-height: 1.75;
+}
 
-    button:active {
-      transform: scale(0.96);
-    }
+.subtitle {
+  color: #ffe2f0;
+  font-size: 1.08rem;
+}
 
-    .surprises {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 5px;
-    }
+.card {
+  margin: 24px 0;
+  padding: 22px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+}
 
-    #phrase {
-      min-height: 65px;
-      padding: 15px;
-      margin-top: 15px;
-      color: #ffd1e8;
-      font-size: 1.12rem;
-      line-height: 1.7;
-    }
+.primary-btn,
+.action-btn {
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 30px;
+  padding: 12px 20px;
+  margin: 6px;
+  cursor: pointer;
+  color: #4b123b;
+  background: linear-gradient(135deg, #ffe0ef, #ff91c8);
+  font-weight: 700;
+  box-shadow: 0 5px 18px rgba(255, 100, 190, .12);
+  transition: transform .2s, box-shadow .2s;
+}
 
-    #gameArea {
-      position: relative;
-      min-height: 180px;
-      margin-top: 15px;
-      overflow: hidden;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.05);
-    }
+.primary-btn {
+  padding: 15px 25px;
+  font-size: 1.05rem;
+}
 
-    .game-heart {
-      position: absolute;
-      font-size: 32px;
-      padding: 0;
-      margin: 0;
-      background: transparent;
-      box-shadow: none;
-      animation: pulse 0.9s infinite alternate;
-    }
+.primary-btn:hover,
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 22px rgba(255, 100, 190, .3);
+}
 
-    .game-heart:hover {
-      box-shadow: none;
-    }
+.primary-btn:active,
+.action-btn:active {
+  transform: scale(.96);
+}
 
-    @keyframes pulse {
-      from { transform: scale(0.9); }
-      to { transform: scale(1.12); }
-    }
+button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
 
-    #gameStatus {
-      min-height: 30px;
-      color: #ffd1e8;
-    }
+.welcome-content {
+  padding: 35px 8px;
+}
 
-    .footer {
-      margin-top: 25px;
-      color: #eec5dd;
-      font-size: 0.9rem;
-    }
+.big-heart {
+  font-size: 5rem;
+  animation: heartbeat 1.3s infinite;
+}
 
-    .hidden {
-      display: none;
-    }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
 
-    @media (max-width: 480px) {
-      .container {
-        padding: 17px;
-        margin: 18px auto;
-      }
+.letter {
+  text-align: left;
+  color: #fff0f7;
+  line-height: 2;
+  white-space: pre-line;
+  font-size: 1.02rem;
+}
 
-      .card {
-        padding: 16px;
-      }
+.surprise-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+}
 
-      button {
-        padding: 11px 14px;
-      }
-    }
-  </style>
+#surprise {
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 16px;
+  color: #ffe0ef;
+  background: rgba(255, 126, 195, .09);
+  border: 1px solid rgba(255, 157, 204, .22);
+  animation: appear .3s ease;
+}
+
+#surprise p {
+  margin-bottom: 0;
+}
+
+#phrase,
+#finalPhrase {
+  min-height: 35px;
+  margin: 18px 0;
+  color: #ffd0e7;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+#game {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  margin: 18px 0;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 18px;
+  background: rgba(255,255,255,.035);
+}
+
+.game-heart {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  font-size: 35px;
+  line-height: 1;
+  cursor: pointer;
+  animation: heartbeat .7s infinite alternate;
+  touch-action: manipulation;
+}
+
+.game-heart:hover {
+  transform: scale(1.2);
+  box-shadow: none;
+}
+
+#gameMessage {
+  color: #ffd0e7;
+  min-height: 30px;
+}
+
+#score {
+  color: var(--pink);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.footer {
+  color: #e9b9d7;
+  font-size: .9rem;
+  margin-top: 30px;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .page {
+    width: 94%;
+    margin: 15px auto;
+    padding: 16px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .letter {
+    font-size: .98rem;
+  }
+
+  .action-btn {
+    padding: 11px 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div id="hearts" aria-hidden="true"></div>
 
-  <main class="container">
-    <h1>Joyeux 3 mois, mon amour 💗</h1>
+<div id="particles" aria-hidden="true"></div>
+
+<!-- ÉCRAN D'ACCUEIL -->
+<section class="page" id="welcome">
+  <div class="welcome-content">
+    <div class="big-heart">💗</div>
+
+    <h1>Joyeux 3 mois, mon amour !</h1>
 
     <p class="subtitle">
-      Trois mois avec toi, et tellement de raisons de t'aimer. 🥹💕
+      Trois mois de nous, de sourires, de tendresse et d'amour. 🥹💕
     </p>
 
-    <section class="card">
-      <h2>💌 Une petite surprise pour toi</h2>
-      <p>
-        J'ai préparé quelque chose spécialement pour toi.
-        Prends ton temps et ouvre chaque petite surprise. ❤️
-      </p>
-      <button id="giftButton">Ouvrir mon cadeau 🎁</button>
-      <p id="giftMessage" class="hidden">
-        Mon plus beau cadeau, c'est toi. Je suis tellement heureux
-        de t'avoir dans ma vie. 💖
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>💖 Ma lettre pour toi</h2>
-
-      <div class="letter" id="letter">
-Mon amour,
-
-Aujourd'hui, ça fait trois mois que nous sommes ensemble, et même si des kilomètres nous séparent, tu as une place immense dans mon cœur. ❤️
-
-Parfois, j'aimerais tellement pouvoir être près de toi, te prendre dans mes bras, te regarder dans les yeux et te dire tout ce que je ressens sans avoir besoin d'un écran entre nous.
-
-Même à distance, tu arrives à me faire sourire et à rendre mes journées plus belles. Tu es devenue une personne très importante pour moi, quelqu'un à qui je pense même quand je suis occupé.
-
-Je sais que tout n'est pas toujours facile. La distance, le manque et les moments où l'on aimerait simplement être ensemble peuvent parfois peser. Mais je veux continuer à construire quelque chose de beau avec toi, avec de la confiance, de la patience et beaucoup d'amour.
-
-Merci d'être entrée dans ma vie, merci pour les moments que nous partageons et pour tous ceux qu'il nous reste à vivre.
-
-J'espère qu'un jour, nous pourrons célébrer nos mois ensemble sans avoir à compter les kilomètres qui nous séparent. Je veux pouvoir te serrer dans mes bras et te montrer que tout cet amour est bien réel.
-
-Joyeux trois mois, mon cœur. Ce n'est peut-être que le début de notre histoire, mais j'espère sincèrement qu'il nous reste encore beaucoup de belles pages à écrire ensemble.
-
-Je t'aime fort, mon amour. 💗
-
-Pour toi, aujourd'hui et pour tous les beaux jours qui nous attendent. 💋
-      </div>
-
-      <button id="letterButton">Relire ma lettre 💌</button>
-    </section>
-
-    <section class="card">
-      <h2>🎀 Choisis une petite surprise</h2>
-      <p>Touche les boutons et découvre mes petits messages. 💕</p>
-
-      <div class="surprises">
-        <button data-message="Tu es l'une des plus belles choses qui me soient arrivées. 💖">
-          💗 Surprise 1
-        </button>
-
-        <button data-message="Même à des kilomètres, mon cœur trouve toujours le chemin jusqu'à toi. 🌍❤️">
-          🌍 Surprise 2
-        </button>
-
-        <button data-message="Si je pouvais faire un vœu maintenant, ce serait d'être dans tes bras. 🫂">
-          🫂 Surprise 3
-        </button>
-
-        <button data-message="Tu me manques dans les petits moments comme dans les grands. 🥹💕">
-          💌 Surprise 4
-        </button>
-
-        <button data-message="Trois mois avec toi, et j'espère encore tellement d'autres à venir. ♾️">
-          ♾️ Surprise 5
-        </button>
-      </div>
-
-      <div id="phrase" aria-live="polite">
-        Une surprise t'attend… 💞
-      </div>
-
-      <button id="randomPhrase">Dis-moi quelque chose de doux 🥰</button>
-    </section>
-
-    <section class="card">
-      <h2>❤️ Le petit jeu des 10 cœurs</h2>
-
-      <p>
-        Attrape les 10 cœurs pour débloquer un dernier message d'amour.
-        Tu as 30 secondes, et chaque cœur reste assez longtemps pour être touché. 💘
-      </p>
-
-      <p id="gameStatus" aria-live="polite">
-        Prête ? Appuie sur le bouton pour commencer ! 💗
-      </p>
-
-      <button id="startGame">Commencer le jeu 🎮</button>
-
-      <div id="gameArea"></div>
-
-      <p id="finalMessage" class="hidden">
-        🎉 Bravo, mon amour ! Tu as attrapé les 10 cœurs !
-        Si je pouvais t'offrir quelque chose aujourd'hui, ce serait
-        un câlin qui dure pour toujours. Je t'aime infiniment. 💖💋
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>💝 Un dernier petit mot</h2>
-      <p>
-        Peu importe la distance, tu comptes énormément pour moi.
-        Merci pour ces trois mois, mon amour. ❤️
-      </p>
-
-      <button id="finalButton">Une dernière surprise 💋</button>
-
-      <p id="finalPhrase" aria-live="polite"></p>
-    </section>
-
-    <p class="footer">
-      Fait avec tout mon amour, spécialement pour toi. 💗✨
+    <p>
+      J'ai préparé une petite surprise rien que pour toi.
+      Prends quelques instants pour découvrir tout ce que je veux te dire. 💌
     </p>
-  </main>
 
-  <script>
-    // Cadeau surprise
-    const giftButton = document.getElementById("giftButton");
-    const giftMessage = document.getElementById("giftMessage");
+    <button class="primary-btn" id="openGiftBtn">
+      Ouvrir notre petit monde 💝
+    </button>
 
-    giftButton.addEventListener("click", () => {
-      giftMessage.classList.toggle("hidden");
-      giftButton.textContent = giftMessage.classList.contains("hidden")
-        ? "Ouvrir mon cadeau 🎁"
-        : "Refermer mon cadeau 💝";
-      createHeartBurst();
-    });
+    <p>Je t'aime, mon cœur. ❤️</p>
+  </div>
+</section>
 
-    // Bouton pour revenir à la lettre
-    document.getElementById("letterButton").addEventListener("click", () => {
-      document.getElementById("letter").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-      createHeartBurst();
-    });
+<!-- CONTENU PRINCIPAL -->
+<main class="page hidden" id="main">
 
-    // Boutons surprises
-    const phrase = document.getElementById("phrase");
+  <h1>Pour toi, mon amour 💖</h1>
 
-    document.querySelectorAll("[data-message]").forEach((button) => {
-      button.addEventListener("click", () => {
-        phrase.textContent = button.dataset.message;
-        createHeartBurst();
-      });
-    });
+  <p class="subtitle">
+    Trois mois ensemble, et tellement de belles choses à espérer. ♾️
+  </p>
 
-    // Phrases romantiques aléatoires
-    const romanticPhrases = [
-      "Tu es mon sourire préféré, même à travers un écran. 💗",
-      "Si je pouvais arrêter le temps, ce serait dans un moment avec toi. ⏳❤️",
-      "La distance nous sépare, mais elle ne change pas ce que je ressens. 🌍💕",
-      "Tu es dans mes pensées bien plus souvent que tu ne l'imagines. 🥹",
-      "J'ai hâte du jour où je pourrai enfin te serrer dans mes bras. 🫂",
-      "Mon endroit préféré serait n'importe où, tant que tu es avec moi. 💖",
-      "Trois mois de nous, et encore tant de souvenirs à créer ensemble. ♾️",
-      "Même les journées ordinaires deviennent spéciales quand je pense à toi. 🌸",
-      "Tu mérites tout l'amour et toute la tendresse du monde. 💋",
-      "Si je devais recommencer notre histoire, je voudrais encore te rencontrer. 💘"
-    ];
+  <!-- PETIT CADEAU -->
+  <section class="card">
+    <h2>🎁 Ton petit cadeau</h2>
 
-    document.getElementById("randomPhrase").addEventListener("click", () => {
-      const randomIndex = Math.floor(Math.random() * romanticPhrases.length);
-      phrase.textContent = romanticPhrases[randomIndex];
-      createHeartBurst();
-    });
+    <p>
+      Avant de lire la suite, j'ai quelque chose à te dire...
+    </p>
 
-    // Bouton final avec plusieurs phrases
-    const finalPhrases = [
-      "Je t'aime plus que les mots ne peuvent le dire. ❤️",
-      "Un jour, plus de kilomètres : juste toi et moi. 🫂",
-      "Tu es mon aujourd'hui et une personne avec qui j'espère partager demain. 💗",
-      "Joyeux trois mois, mon amour. Merci d'être toi. 💋",
-      "Je t'envoie mille bisous et le plus grand des câlins. 😘💞"
-    ];
+    <button class="action-btn" id="giftBtn">
+      Découvrir mon cadeau 🎀
+    </button>
 
-    let lastFinalIndex = -1;
+    <div id="giftMessage" class="hidden">
+      <p>
+        Si je pouvais t'offrir quelque chose aujourd'hui,
+        ce serait un câlin assez long pour te faire oublier
+        tous les kilomètres entre nous. 🫂💗
+      </p>
+      <p>Tu es un cadeau précieux dans ma vie. 💝</p>
+    </div>
+  </section>
 
-    document.getElementById("finalButton").addEventListener("click", () => {
-      let index;
+  <!-- LETTRE -->
+  <section class="card" id="mainLetter">
+    <h2>💌 Ma lettre pour toi</h2>
 
-      do {
-        index = Math.floor(Math.random() * finalPhrases.length);
-      } while (finalPhrases.length > 1 && index === lastFinalIndex);
+    <div class="letter" id="letterText">Mon amour,
 
-      lastFinalIndex = index;
-      document.getElementById("finalPhrase").textContent = finalPhrases[index];
-      createHeartBurst();
-    });
+Aujourd'hui, ça fait trois mois que nous sommes ensemble, et je voulais prendre le temps de te rappeler à quel point tu comptes pour moi. ❤️
 
-    // Cœurs flottants en arrière-plan
-    const heartsContainer = document.getElementById("hearts");
-    const heartEmojis = ["💗", "💖", "💕", "💘", "❤️", "💞", "💓"];
+Même si des kilomètres nous séparent, tu as une place très spéciale dans mon cœur. Parfois, j'aimerais simplement pouvoir être près de toi, te prendre dans mes bras, te regarder dans les yeux et te dire tout ce que je ressens sans avoir besoin d'un écran entre nous.
 
-    function createFloatingHeart() {
-      const heart = document.createElement("span");
-      heart.className = "floating-heart";
-      heart.textContent = heartEmojis[
-        Math.floor(Math.random() * heartEmojis.length)
-      ];
+Tu arrives à me faire sourire même à distance. Il y a des moments où je pense à toi sans raison particulière, juste parce que tu fais partie de mes pensées et que tu es devenue importante pour moi. 🥹💗
 
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (14 + Math.random() * 22) + "px";
-      heart.style.animationDuration = (6 + Math.random() * 7) + "s";
+Je sais que la distance n'est pas toujours facile. Il y a des moments où l'on aimerait être ensemble, partager des choses toutes simples et profiter l'un de l'autre sans devoir attendre. Mais j'espère qu'on pourra continuer à avancer ensemble, avec de la confiance, de la patience et de la tendresse.
 
-      heartsContainer.appendChild(heart);
+Merci pour ces trois mois, pour les souvenirs qu'on a déjà créés et pour ceux qui nous attendent encore. Je ne sais pas exactement ce que l'avenir nous réserve, mais j'espère sincèrement qu'il nous donnera de nombreuses occasions de nous retrouver et de vivre de beaux moments ensemble.
 
-      setTimeout(() => heart.remove(), 14000);
+J'aimerais qu'un jour, nous puissions célébrer notre histoire côte à côte, sans avoir à compter les kilomètres. Pouvoir te serrer dans mes bras et te montrer, autrement qu'avec des messages, tout l'amour que j'ai pour toi. 💋
+
+Joyeux trois mois, mon cœur. Ce n'est peut-être que le début de notre histoire, mais j'espère qu'il nous reste encore beaucoup de pages à écrire ensemble.
+
+Je t'aime très fort, mon amour. Merci d'être toi. 💖
+
+Pour toi, aujourd'hui et pour les beaux moments qui nous attendent. 💌</div>
+
+    <button class="action-btn" id="backLetterBtn">
+      Relire ma lettre 💌
+    </button>
+  </section>
+
+  <!-- SURPRISES -->
+  <section class="card">
+    <h2>🎀 Cinq petites surprises</h2>
+
+    <p>
+      Chaque bouton cache un message spécialement pour toi.
+      Choisis celui que tu veux découvrir ! 💕
+    </p>
+
+    <div class="surprise-buttons">
+      <button class="action-btn" id="loveBtn">💗 Mon amour</button>
+      <button class="action-btn" id="missBtn">🫂 Tu me manques</button>
+      <button class="action-btn" id="kissBtn">💋 Des bisous</button>
+      <button class="action-btn" id="secretBtn">🤫 Mon secret</button>
+      <button class="action-btn" id="hugBtn">💕 Un câlin</button>
+    </div>
+
+    <div id="surprise" class="hidden" aria-live="polite"></div>
+  </section>
+
+  <!-- PHRASES ALÉATOIRES -->
+  <section class="card">
+    <h2>💖 Un message pour toi</h2>
+
+    <p>
+      Appuie sur le bouton chaque fois que tu veux découvrir
+      une nouvelle petite phrase d'amour. 🥹
+    </p>
+
+    <button class="primary-btn" id="phraseBtn">
+      Dis-moi quelque chose de doux 🥰
+    </button>
+
+    <div id="phrase" aria-live="polite">
+      Une petite phrase t'attend... 💌
+    </div>
+  </section>
+
+  <!-- JEU DES DIX CŒURS -->
+  <section class="card">
+    <h2>🎮 Le jeu des 10 cœurs</h2>
+
+    <p>
+      Attrape les dix cœurs qui apparaissent dans la zone de jeu.
+      Chaque cœur attrapé te rapproche du message final ! 💘
+    </p>
+
+    <p>
+      Cœurs attrapés :
+      <span id="score">0</span> / 10
+    </p>
+
+    <div id="game" aria-label="Zone du jeu"></div>
+
+    <p id="gameMessage" aria-live="polite">
+      Tu es prête, mon amour ? Lance le jeu ! 💗
+    </p>
+
+    <button class="primary-btn" id="startGameBtn">
+      Commencer le jeu 🎮
+    </button>
+
+    <div id="gameReward" class="hidden">
+      <h2>🎉 Bravo, mon amour !</h2>
+      <p>
+        Tu as attrapé les dix cœurs ! 💖
+      </p>
+      <p>
+        Mais le plus important, c'est celui que je garde
+        pour toi dans mon cœur. Il est à toi, aujourd'hui
+        et pour tous les beaux moments qui nous attendent. 💋
+      </p>
+    </div>
+  </section>
+
+  <!-- MESSAGE FINAL -->
+  <section class="card">
+    <h2>💝 Une dernière surprise</h2>
+
+    <p>
+      Avant de partir, j'ai encore quelques mots pour toi...
+    </p>
+
+    <button class="primary-btn" id="finalBtn">
+      Ouvrir mon dernier message 💋
+    </button>
+
+    <div id="finalPhrase" aria-live="polite"></div>
+  </section>
+
+  <p class="footer">
+    Créé avec amour, spécialement pour toi. 💗✨
+    <br>
+    Joyeux trois mois à nous deux. 💞
+  </p>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  // CŒURS FLOTTANTS
+  const particles = $("particles");
+  const emojis = ["💗", "💖", "💕", "❤️", "💘", "💞", "✨", "🌸"];
+
+  function createHeart() {
+    if (document.hidden) return;
+
+    const heart = document.createElement("span");
+    heart.className = "particle";
+    heart.textContent =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+    particles.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 12000);
+  }
+
+  setInterval(createHeart, 550);
+
+  function heartBurst() {
+    for (let i = 0; i < 8; i++) {
+      setTimeout(createHeart, i * 100);
     }
+  }
 
-    function createHeartBurst() {
-      for (let i = 0; i < 7; i++) {
-        setTimeout(createFloatingHeart, i * 100);
-      }
-    }
+  // OUVRIR LA PAGE PRINCIPALE
+  $("openGiftBtn").addEventListener("click", function () {
+    $("welcome").classList.add("hidden");
+    $("main").classList.remove("hidden");
 
-    setInterval(createFloatingHeart, 500);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
-    // Jeu des 10 cœurs
-    const gameArea = document.getElementById("gameArea");
-    const gameStatus = document.getElementById("gameStatus");
-    const startGame = document.getElementById("startGame");
-    const finalMessage = document.getElementById("finalMessage");
+    heartBurst();
+  });
 
-    let score = 0;
-    let gameActive = false;
-    let timeLeft = 30;
-    let gameTimer = null;
-    let heartTimer = null;
+  // CADEAU
+  $("giftBtn").addEventListener("click", function () {
+    const message = $("giftMessage");
+    message.classList.toggle("hidden");
 
-    function clearGameTimers() {
-      clearInterval(gameTimer);
-      clearTimeout(heartTimer);
-      gameTimer = null;
-      heartTimer = null;
-    }
+    this.textContent = message.classList.contains("hidden")
+      ? "Découvrir mon cadeau 🎀"
+      : "Refermer mon cadeau 💝";
 
-    function endGame(won) {
-      gameActive = false;
-      clearGameTimers();
-      gameArea.innerHTML = "";
+    heartBurst();
+  });
 
-      if (won) {
-        gameStatus.textContent = "Tu as gagné ! 10 cœurs pour toi ! 💖";
-        finalMessage.classList.remove("hidden");
-        startGame.textContent = "Rejouer 💕";
-        createHeartBurst();
-      } else {
-        gameStatus.textContent =
-          "Le temps est écoulé ! Tu as attrapé " + score +
-          " cœur(s). Réessaie, mon amour ! 💗";
-        finalMessage.classList.add("hidden");
-        startGame.textContent = "Réessayer 🎮";
-      }
-    }
+  // RETOUR À LA LETTRE
+  $("backLetterBtn").addEventListener("click", function () {
+    $("mainLetter").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
 
-    function spawnGameHeart() {
+    heartBurst();
+  });
+
+  // MESSAGES DES SURPRISES
+  const surpriseMessages = {
+    loveBtn: [
+      "Tu es une personne très spéciale pour moi, et je suis heureux de partager ces trois mois avec toi. 💗",
+      "Si je pouvais faire un vœu aujourd'hui, ce serait de te voir sourire juste devant moi. 💖",
+      "Merci d'être entrée dans ma vie et d'y avoir apporté de si beaux moments. 🌸"
+    ],
+
+    missBtn: [
+      "Tu me manques dans les petits moments comme dans les grands. J'ai hâte de te retrouver. 🫂",
+      "Parfois, j'aimerais pouvoir traverser tous ces kilomètres juste pour te faire un câlin. 💗",
+      "La distance est grande, mais tu gardes une place toute particulière dans mon cœur. 🌍❤️"
+    ],
+
+    kissBtn: [
+      "Je t'envoie mille bisous, un câlin géant et toute ma tendresse ! 💋💋💋",
+      "Prépare-toi : cette surprise contient une quantité illimitée de bisous. 😘💞",
+      "Un bisou pour ton sourire, un pour tes yeux et mille autres juste parce que c'est toi. 💋"
+    ],
+
+    secretBtn: [
+      "Mon secret ? Je souris parfois en pensant à toi sans même m'en rendre compte. 🤫💕",
+      "J'aimerais que notre histoire nous offre encore beaucoup de beaux souvenirs. 💌",
+      "Si tu pouvais lire mes pensées à certains moments, tu y trouverais sûrement ton prénom. 💖"
+    ],
+
+    hugBtn: [
+      "Imagine que je suis près de toi et que je te prends doucement dans mes bras. 🫂💗",
+      "Je t'envoie le câlin le plus doux du monde, même à travers tous ces kilomètres. 💕",
+      "Un câlin virtuel aujourd'hui, et j'espère un vrai câlin un jour. ❤️"
+    ]
+  };
+
+  function showSurprise(message) {
+    const box = $("surprise");
+
+    box.replaceChildren();
+    box.classList.remove("hidden");
+
+    const text = document.createElement("p");
+    text.textContent = message;
+
+    const icon = document.createElement("div");
+    icon.textContent = "💖";
+    icon.style.fontSize = "2.5rem";
+
+    box.append(icon, text);
+    heartBurst();
+  }
+
+  Object.keys(surpriseMessages).forEach(function (buttonId) {
+    $(buttonId).addEventListener("click", function () {
+      const messages = surpriseMessages[buttonId];
+      const message =
+        messages[Math.floor(Math.random() * messages.length)];
+
+      showSurprise(message);
+    });
+  });
+
+  // PHRASES ALÉATOIRES
+  const phrases = [
+    "Tu es l'une des plus belles choses qui me soient arrivées. 💗",
+    "Même à distance, tu arrives à rendre mes journées plus belles. ☀️",
+    "J'aimerais pouvoir te serrer dans mes bras en ce moment même. 🫂",
+    "Trois mois ensemble, et j'espère encore beaucoup d'autres. ♾️",
+    "Tu mérites tout le bonheur et toute la tendresse du monde. 💖",
+    "Un jour, j'espère que nous n'aurons plus de kilomètres entre nous. 🌍",
+    "Mon endroit préféré serait n'importe où, tant que tu es avec moi. 💕",
+    "Je t'envoie un petit sourire et mille bisous. 😘",
+    "Merci pour ces trois mois, mon amour. 💌",
+    "Je suis heureux que nos chemins se soient croisés. 🌸",
+    "Si je pouvais remonter le temps, je voudrais encore te rencontrer. 💘",
+    "Tu as une place spéciale dans mon cœur. ❤️",
+    "J'ai hâte de créer encore plus de souvenirs avec toi. 📖",
+    "Tu me fais sourire même quand tu es loin de moi. 🥹",
+    "Joyeux trois mois, ma princesse ! 👑💗",
+    "J'espère que tu ressens tout l'amour que je t'envoie. 💞",
+    "Chaque petit moment partagé avec toi compte pour moi. 💖",
+    "Je t'envoie le plus gros câlin du monde. 🫂",
+    "Notre histoire est encore jeune, et j'espère qu'elle sera belle. 💌",
+    "Je t'aime fort, mon amour. 💋"
+  ];
+
+  let previousPhrase = -1;
+
+  $("phraseBtn").addEventListener("click", function () {
+    let index;
+
+    do {
+      index = Math.floor(Math.random() * phrases.length);
+    } while (index === previousPhrase);
+
+    previousPhrase = index;
+    $("phrase").textContent = phrases[index];
+
+    heartBurst();
+  });
+
+  // JEU DES 10 CŒURS
+  let score = 0;
+  let gameActive = false;
+
+  function spawnGameHeart() {
+    if (!gameActive) return;
+
+    const game = $("game");
+    game.replaceChildren();
+
+    const heart = document.createElement("button");
+    heart.type = "button";
+    heart.className = "game-heart";
+    heart.textContent =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.setAttribute("aria-label", "Attraper le cœur");
+
+    const maxX = Math.max(0, game.clientWidth - 50);
+    const maxY = Math.max(0, game.clientHeight - 50);
+
+    heart.style.left = Math.random() * maxX + "px";
+    heart.style.top = Math.random() * maxY + "px";
+
+    heart.addEventListener("click", function () {
       if (!gameActive) return;
 
-      gameArea.innerHTML = "";
+      score++;
+      $("score").textContent = score;
 
-      const heart = document.createElement("button");
-      heart.className = "game-heart";
-      heart.type = "button";
-      heart.textContent = "💖";
-      heart.setAttribute("aria-label", "Attraper ce cœur");
+      if (score >= 10) {
+        gameActive = false;
+        game.replaceChildren();
 
-      const maxX = Math.max(0, gameArea.clientWidth - 45);
-      const maxY = Math.max(0, gameArea.clientHeight - 45);
+        $("gameMessage").textContent =
+          "Bravo, mon amour ! Tu as réussi ! 🎉💖";
 
-      heart.style.left = Math.random() * maxX + "px";
-      heart.style.top = Math.random() * maxY + "px";
+        $("gameReward").classList.remove("hidden");
+        $("startGameBtn").textContent = "Rejouer 💕";
 
-      heart.addEventListener("click", () => {
-        if (!gameActive) return;
+        heartBurst();
+      } else {
+        $("gameMessage").textContent =
+          "Encore " + (10 - score) +
+          " cœur(s) à attraper ! Tu peux le faire ! 💗";
 
-        score++;
-        gameStatus.textContent =
-          "Cœurs attrapés : " + score + "/10 ❤️  Temps restant : " +
-          timeLeft + " s";
-
-        heart.remove();
-        clearTimeout(heartTimer);
-
-        if (score >= 10) {
-          endGame(true);
-        } else {
-          spawnGameHeart();
-        }
-      });
-
-      gameArea.appendChild(heart);
-
-      // Si le cœur n'est pas touché, il reste en place et peut toujours
-      // être attrapé : il ne disparaît pas automatiquement.
-    }
-
-    startGame.addEventListener("click", () => {
-      clearGameTimers();
-
-      score = 0;
-      timeLeft = 30;
-      gameActive = true;
-      finalMessage.classList.add("hidden");
-      startGame.textContent = "Je joue... 💗";
-
-      gameStatus.textContent =
-        "Cœurs attrapés : 0/10 ❤️  Temps restant : 30 s";
-
-      spawnGameHeart();
-
-      gameTimer = setInterval(() => {
-        timeLeft--;
-
-        if (timeLeft <= 0) {
-          endGame(score >= 10);
-        } else {
-          gameStatus.textContent =
-            "Cœurs attrapés : " + score + "/10 ❤️  Temps restant : " +
-            timeLeft + " s";
-        }
-      }, 1000);
+        spawnGameHeart();
+      }
     });
-  </script>
+
+    game.appendChild(heart);
+  }
+
+  $("startGameBtn").addEventListener("click", function () {
+    score = 0;
+    gameActive = true;
+
+    $("score").textContent = "0";
+    $("gameReward").classList.add("hidden");
+
+    $("gameMessage").textContent =
+      "Attrape les cœurs un par un ! 💘";
+
+    this.textContent = "Je joue ! 💗";
+
+    spawnGameHeart();
+  });
+
+  // MESSAGE FINAL ALÉATOIRE
+  const finalMessages = [
+    "Je t'aime plus que les mots ne peuvent le dire. ❤️",
+    "Un jour, j'espère pouvoir te serrer dans mes bras pour de vrai. 🫂",
+    "Merci d'être toi et de faire partie de ma vie. 💗",
+    "Joyeux trois mois, mon amour. Et vivement les prochains ! 💋",
+    "Même à des kilomètres, je t'envoie tout mon amour. 🌍💖",
+    "Si je pouvais être quelque part maintenant, ce serait près de toi. 💕",
+    "Tu es une personne précieuse pour moi. N'en doute jamais. 🥹💗"
+  ];
+
+  let previousFinal = -1;
+
+  $("finalBtn").addEventListener("click", function () {
+    let index;
+
+    do {
+      index = Math.floor(Math.random() * finalMessages.length);
+    } while (index === previousFinal);
+
+    previousFinal = index;
+
+    $("finalPhrase").textContent = finalMessages[index];
+    heartBurst();
+  });
+
+  console.log("La page romantique est prête ! 💗");
+});
+</script>
+
 </body>
 </html>
 ```
