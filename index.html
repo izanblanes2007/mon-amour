@@ -1,11 +1,11 @@
-``
+```html
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#ffb6d9">
-<title>Joyeux 3 mois, mon amour 💗</title>
+<title>Felices 3 meses, mi amor 💗</title>
 
 <style>
 * {
@@ -16,14 +16,13 @@
 
 :root {
   --pink: #ff75ad;
+  --light-pink: #ffe0ef;
   --purple: #b58aff;
   --dark: #57264c;
 }
 
 body {
-  font-family: "Trebuchet MS", Arial,
-    "Apple Color Emoji", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif;
+  font-family: "Trebuchet MS", Arial, sans-serif;
   color: var(--dark);
   background: linear-gradient(135deg, #ffe5f1, #f0e2ff, #fff0f6);
   min-height: 100vh;
@@ -34,7 +33,6 @@ button {
   font-family: inherit;
   cursor: pointer;
   border: none;
-  touch-action: manipulation;
   transition: transform .25s, box-shadow .25s;
 }
 
@@ -45,11 +43,6 @@ button:hover {
 
 button:active {
   transform: scale(.96);
-}
-
-button:focus-visible {
-  outline: 3px solid #bd4f91;
-  outline-offset: 3px;
 }
 
 .hidden {
@@ -67,10 +60,8 @@ button:focus-visible {
 .particle {
   position: absolute;
   bottom: -50px;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif;
   animation: floatUp linear forwards;
-  opacity: .8;
+  opacity: .7;
 }
 
 @keyframes floatUp {
@@ -93,11 +84,12 @@ button:focus-visible {
 .panel {
   width: min(100%, 760px);
   padding: clamp(22px, 5vw, 45px);
-  background: #ffffffed;
-  border: 1px solid white;
+  background: #ffffffd9;
+  border: 1px solid #ffffff;
   border-radius: 28px;
   box-shadow: 0 15px 50px #a8589020;
   text-align: center;
+  backdrop-filter: blur(12px);
   animation: appear .8s ease;
 }
 
@@ -133,6 +125,7 @@ p {
   font-size: clamp(4rem, 15vw, 7rem);
   display: inline-block;
   animation: heartbeat 1.4s infinite;
+  filter: drop-shadow(0 8px 12px #ef78ad55);
 }
 
 @keyframes heartbeat {
@@ -171,7 +164,6 @@ p {
   border: 1px solid #ffd1e5;
   line-height: 1.9;
   margin: 20px 0;
-  scroll-margin-top: 20px;
 }
 
 .letter p {
@@ -203,6 +195,7 @@ p {
   color: #bd3986;
   font-weight: bold;
   line-height: 1.7;
+  animation: appear .4s ease;
 }
 
 .cards {
@@ -247,38 +240,28 @@ p {
 
 #game {
   position: relative;
-  height: 320px;
+  height: 300px;
   max-width: 100%;
   overflow: hidden;
   border-radius: 15px;
-  background: #ffffffd9;
+  background: #ffffffb8;
   border: 1px dashed #e7a4cb;
   margin-top: 15px;
+  touch-action: manipulation;
 }
 
 .game-heart {
   position: absolute;
-  width: 64px;
-  height: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: transparent;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif;
-  font-size: 38px;
-  border-radius: 50%;
+  font-size: 30px;
+  padding: 5px;
+  animation: heartbeat 1s infinite;
 }
 
 .score {
   font-weight: bold;
   font-size: 1.2rem;
   margin: 12px;
-}
-
-#gameMessage {
-  font-weight: bold;
-  color: #bd3986;
 }
 
 footer {
@@ -307,103 +290,101 @@ footer {
 <body>
 <div id="particles" aria-hidden="true"></div>
 
+<!-- PANTALLA DE BIENVENIDA -->
 <section id="welcome" class="screen">
   <div class="panel">
     <div class="heart">💗</div>
-    <p>Un petit cadeau préparé spécialement pour toi...</p>
-    <h1>Joyeux 3 mois, mon amour</h1>
+    <p>Un pequeño regalo hecho especialmente para ti...</p>
+    <h1>Felices 3 meses, mi amor</h1>
     <p>
-      J'ai préparé une petite surprise qui vient directement de mon cœur.
-      J'espère qu'elle te fera sourire. 🥹💕
+      He preparado algo que viene directamente de mi corazón.
+      Espero que cada parte te saque una sonrisa. 🥹💕
     </p>
     <button class="primary" onclick="openGift()">
-      Ouvrir notre cadeau 🎁
+      Abrir nuestro regalo 🎁
     </button>
   </div>
 </section>
 
+<!-- CONTENIDO PRINCIPAL -->
 <main id="main" class="screen hidden">
   <div class="panel">
     <div class="heart">💖</div>
-    <h1>Pour ma jolie princesse</h1>
-    <p>Trois mois avec toi, et ce n'est que le début. 🌷</p>
+    <h1>Para mi niña bonita</h1>
+    <p>Tres meses de nosotros, y esto es solo el comienzo. 🌷</p>
 
     <article class="letter" id="mainLetter">
-      <h2>Une lettre pour toi 💌</h2>
+      <h2>Una carta para ti 💌</h2>
 
-      <p>Mon amour,</p>
+      <p>Mi amor,</p>
 
       <p>
-        Aujourd'hui, cela fait trois mois que nous sommes ensemble,
-        et je voulais te préparer quelque chose de spécial, un petit
-        cadeau que tu pourras garder et relire quand tu en auras envie.
-        ❤️
+        Hoy cumplimos tres meses juntos y quería hacerte algo especial,
+        algo que pudieras guardar y volver a abrir cuando quisieras
+        recordar lo mucho que significas para mí. ❤️
       </p>
 
       <p>
-        Je ne trouve pas toujours les mots parfaits pour expliquer
-        tout ce que je ressens, mais je veux que tu saches que ta
-        présence dans ma vie compte énormément pour moi. J'aime nos
-        conversations, nos moments partagés et toutes ces petites
-        choses qui font que notre histoire est unique. 💗
+        Puede que a veces no encuentre las palabras perfectas para
+        explicarte todo lo que siento, pero quiero que sepas que tenerte
+        en mi vida significa muchísimo para mí. Me encanta poder hablar
+        contigo, compartir momentos y descubrir poco a poco todo lo que
+        hace que seas tú.
       </p>
 
       <p>
-        Notre histoire n'a pas besoin d'être parfaite pour être belle.
-        Ce qui compte pour moi, c'est que nous puissions continuer à
-        nous découvrir, à nous écouter, à prendre soin l'un de l'autre
-        et à créer de beaux souvenirs ensemble. 🫶🏻
+        No necesitamos tener una historia perfecta para que sea bonita.
+        Lo importante para mí es que podamos seguir conociéndonos,
+        escuchándonos, cuidándonos y creando recuerdos que algún día
+        nos hagan sonreír al recordarlos. 🫶🏻
       </p>
 
       <p>
-        Même lorsque la distance nous sépare, j'espère que tu te
-        rappelleras qu'un simple message de toi peut illuminer ma
-        journée. Même si nous ne pouvons pas toujours être ensemble
-        physiquement, nous pouvons continuer à partager de la tendresse,
-        de la joie et de beaux moments. 🫂
+        Si alguna vez estamos lejos, quiero que recuerdes que un mensaje
+        tuyo puede alegrarme el día y que, aunque no siempre podamos
+        estar juntos físicamente, podemos seguir compartiendo cariño,
+        ilusión y momentos especiales.
       </p>
 
       <p>
-        Merci pour ces trois mois, pour les sourires que nous avons
-        partagés et pour la place que tu as dans ma vie. Quand je pense
-        à la suite de notre histoire, j'espère que nous aurons encore
-        plein de beaux moments à vivre ensemble. 🌷
+        Gracias por estos tres meses, por ser parte de mi vida y por
+        todas las sonrisas que hemos compartido. Me hace ilusión pensar
+        en todo lo bonito que todavía podemos vivir juntos.
       </p>
 
       <p>
-        Je ne sais pas ce que chaque chapitre de notre histoire nous
-        réserve, mais j'aimerais continuer à l'écrire avec toi, avec
-        de la sincérité, de la tendresse et l'envie de faire les choses
-        bien. 💞
+        No sé cómo será cada capítulo de nuestra historia, pero me
+        gustaría seguir escribiéndola contigo, con cariño, sinceridad
+        y muchas ganas de hacer las cosas bien. 💗
       </p>
 
       <p class="signature">
-        Je te choisirais encore et encore, mon amour.
-        Joyeux trois mois à nous deux. Je t'aime très fort. 💗🫶🏻
+        Te elegiría a ti una y mil veces más, mi amor.
+        Felices tres meses juntos. 💗🫶🏻
       </p>
     </article>
 
-    <h2>De petites surprises pour toi 🎀</h2>
+    <h2>Pequeñas sorpresas para ti 🎀</h2>
 
     <div class="button-area">
       <button class="secondary" onclick="loveSurprise()">
-        Tu sais à quel point je t'aime ? 💗
+        ¿Sabes cuánto te quiero? 💗
       </button>
 
       <button class="secondary" onclick="missYou()">
-        Si je te manque 🥹
+        Si me echas de menos 🥹
       </button>
 
       <button class="secondary" onclick="sendKiss()">
-        Un bisou pour toi 💋
+        Un beso para ti 💋
       </button>
 
       <button class="secondary" onclick="toggleSecret()">
-        Notre petit secret 🤫
+        Nuestro secreto 🤫
       </button>
 
       <button class="secondary" onclick="hugSurprise()">
-        Un câlin virtuel 🫂
+        Un abrazo virtual 🫂
       </button>
     </div>
 
@@ -411,71 +392,74 @@ footer {
 
     <hr style="border:0;border-top:1px solid #f4c9df;margin:30px 0">
 
-    <h2>Nos trois premiers mois 💞</h2>
+    <!-- TRES MESES -->
+    <h2>Nuestros primeros tres meses 💞</h2>
 
     <div class="cards">
       <div class="month-card">
         <div class="month-icon">🌷</div>
-        <h3>Mois 1 — Le début</h3>
+        <h3>Mes 1</h3>
         <p>
-          Le commencement d'une belle histoire et plein de raisons
-          de sourire.
+          El comienzo de algo especial, una nueva historia y muchas
+          razones para sonreír.
         </p>
       </div>
 
       <div class="month-card">
         <div class="month-icon">💞</div>
-        <h3>Mois 2 — Plus proches</h3>
+        <h3>Mes 2</h3>
         <p>
-          Des conversations, des moments partagés et de nouvelles
-          choses à découvrir l'un sur l'autre.
+          Más conversaciones, más momentos compartidos y nuevas cosas
+          que descubrir el uno del otro.
         </p>
       </div>
 
       <div class="month-card">
         <div class="month-icon">❤️</div>
-        <h3>Mois 3 — Nous deux</h3>
+        <h3>Mes 3</h3>
         <p>
-          Trois mois de tendresse, de souvenirs et d'envie de continuer
-          à écrire notre histoire.
+          Tres meses de nosotros, de cariño y de ilusión por todo lo
+          bonito que todavía podemos vivir.
         </p>
       </div>
     </div>
 
     <hr style="border:0;border-top:1px solid #f4c9df;margin:30px 0">
 
-    <h2>Des petits mots pour toi 💌</h2>
-    <p>Appuie sur le bouton chaque fois que tu veux lire un mot doux.</p>
+    <!-- FRASES ALEATORIAS -->
+    <h2>Un montón de razones para quererte 💌</h2>
+    <p>Pulsa el botón cada vez que quieras leer algo bonito.</p>
 
     <div id="phrase" aria-live="polite">
-      J'ai un petit message pour toi... 💗
+      Tengo un pequeño mensaje guardado para ti... 💗
     </div>
 
     <button class="primary" onclick="newPhrase()">
-      Clique ici, mon amour 💗
+      Pulsa aquí, mi amor 💗
     </button>
 
     <hr style="border:0;border-top:1px solid #f4c9df;margin:30px 0">
 
-    <h2>Attrape les cœurs de ton amoureux 💘</h2>
+    <!-- MINIJUEGO -->
+    <h2>Atrapa los corazones 💘</h2>
     <p>
-      Touche les cœurs pour les collectionner. Il n'y a aucune limite
-      de temps et ils ne s'enfuient pas ! 🥹
+      Toca los corazones que aparezcan y consigue 10 puntos.
+      Cada uno lleva un poquito de cariño para ti. 🥹
     </p>
 
     <div class="game-box">
       <div class="score">
-        Cœurs : <span id="score">0</span> / 10
+        Corazones: <span id="score">0</span> / 10
       </div>
 
       <div id="game">
         <p style="padding:20px">
-          Appuie sur « Commencer » pour attraper tes cœurs. 💗
+          Pulsa “Empezar juego” para recoger tus corazones. 💗
         </p>
       </div>
 
       <button class="primary" onclick="startGame()">
-        Commencer le jeu 🎮
+        Empezar juego 🎮
       </button>
 
       <p id="gameMessage" aria-live="polite"></p>
@@ -483,43 +467,43 @@ footer {
 
     <hr style="border:0;border-top:1px solid #f4c9df;margin:35px 0">
 
+    <!-- FINAL -->
     <div class="heart">💖</div>
-    <h1>Et ce n'est que le début...</h1>
+    <h1>Y esto solo es el comienzo...</h1>
 
     <p>
-      Joyeux trois mois, ma chérie. Merci d'être toi, de faire partie
-      de ma vie et de m'offrir tant de raisons de sourire. J'espère que
-      nous pourrons continuer à partager de beaux moments, à créer
-      des souvenirs et à nous donner beaucoup d'amour. 💗
+      Felices tres meses, mi niña. Gracias por ser tú, por formar parte
+      de mi vida y por regalarme tantos motivos para sonreír.
+      Ojalá podamos seguir sumando momentos, recuerdos, abrazos y
+      muchísimas sonrisas juntos.
     </p>
 
     <p>
-      Ce petit site est loin de pouvoir exprimer tout ce que j'aimerais
-      te dire, mais je l'ai préparé en pensant à toi. J'espère qu'en le
-      rouvrant, tu te souviendras de la beauté de ces trois mois
-      partagés. 🫶🏻
+      Esta web es pequeñita comparada con todo lo que me gustaría
+      expresarte, pero la he preparado pensando en ti.
+      Espero que, cuando la vuelvas a abrir, recuerdes lo especial
+      que es para mí celebrar estos tres meses contigo. 💗
     </p>
 
-    <h2>Je t'aime énormément, mon amour. 💋</h2>
+    <h2>Te quiero muchísimo, mi amor. 💋</h2>
 
     <button class="primary" onclick="backToLetter()">
-      Relire ma lettre d'amour 💌
+      Volver a abrir mi corazón 💌
     </button>
 
-    <footer>Fait avec beaucoup d'amour, spécialement pour toi. 💗</footer>
+    <footer>
+      Hecho con mucho cariño, solo para ti. 💗
+    </footer>
   </div>
 </main>
 
 <script>
 const particles = document.getElementById("particles");
-
 const reducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
 
-const floatingEmojis = [
-  "💗", "💕", "💖", "✨", "🌸", "❤️", "🫶🏻", "💋", "🌷"
-];
+const floatingEmojis = ["💗", "💕", "💖", "✨", "🌸", "❤️", "🫶🏻"];
 
 function createParticle() {
   if (reducedMotion || document.hidden) return;
@@ -530,7 +514,7 @@ function createParticle() {
     floatingEmojis[Math.floor(Math.random() * floatingEmojis.length)];
 
   particle.style.left = Math.random() * 100 + "vw";
-  particle.style.fontSize = (18 + Math.random() * 22) + "px";
+  particle.style.fontSize = (14 + Math.random() * 22) + "px";
   particle.style.animationDuration = (6 + Math.random() * 7) + "s";
 
   particles.appendChild(particle);
@@ -553,12 +537,11 @@ function burst(count = 16) {
         Math.floor(Math.random() * 4)
       ];
       heart.style.left = (10 + Math.random() * 80) + "vw";
-      heart.style.fontSize = (22 + Math.random() * 20) + "px";
+      heart.style.fontSize = (20 + Math.random() * 20) + "px";
       heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-
       particles.appendChild(heart);
       setTimeout(() => heart.remove(), 7000);
-    }, i * 60);
+    }, i * 70);
   }
 }
 
@@ -572,25 +555,16 @@ function openGift() {
 function showSurprise(message, emoji = "💗") {
   const box = document.getElementById("surprise");
   box.classList.remove("hidden");
-  box.replaceChildren();
-
-  const icon = document.createElement("div");
-  icon.style.fontSize = "2rem";
-  icon.textContent = emoji;
-
-  const text = document.createElement("p");
-  text.textContent = message;
-
-  box.append(icon, text);
+  box.innerHTML = `<div style="font-size:2rem">${emoji}</div><p>${message}</p>`;
   burst(12);
 }
 
 function loveSurprise() {
   const messages = [
-    "Beaucoup plus que je ne sais parfois l'expliquer avec des mots. 💗",
-    "Assez pour avoir envie de continuer à découvrir notre histoire. 💞",
-    "Au point d'espérer que cette petite surprise te fasse sourire. 🥹",
-    "D'une façon qui rend nos petits moments si précieux. ❤️"
+    "Muchísimo más de lo que a veces sé explicar con palabras. 💗",
+    "Lo suficiente como para querer seguir descubriendo nuestra historia. 💞",
+    "Tanto como para querer que hoy tengas una sonrisa preciosa. 🥹",
+    "De una forma que hace que nuestros pequeños momentos sean especiales. ❤️"
   ];
 
   showSurprise(
@@ -601,14 +575,14 @@ function loveSurprise() {
 
 function missYou() {
   showSurprise(
-    "Si je le pouvais, je te prendrais dans mes bras maintenant et je resterais encore un peu près de toi. 🫂💖",
+    "Ojalá pudiera darte un abrazo ahora mismo y quedarme un ratito más contigo. 🫂💖",
     "🫂"
   );
 }
 
 function sendKiss() {
   showSurprise(
-    "Je t'envoie plein de petits bisous virtuels. Attrape-les tous ! 💋💋💋",
+    "Te mando un montón de besitos virtuales. ¡Atrapa todos los que puedas! 💋💋💋",
     "💋"
   );
   burst(30);
@@ -616,7 +590,7 @@ function sendKiss() {
 
 function hugSurprise() {
   showSurprise(
-    "Imagine un câlin qui te fait sentir que, pendant un instant, tout va bien. 🫶🏻",
+    "Imagina un abrazo de esos que te hacen sentir que, por un momento, todo está bien. 🫶🏻",
     "🫂"
   );
 }
@@ -624,14 +598,15 @@ function hugSurprise() {
 function toggleSecret() {
   const box = document.getElementById("surprise");
 
-  if (box.dataset.secret === "true" && !box.classList.contains("hidden")) {
+  if (!box.classList.contains("hidden") &&
+      box.dataset.secret === "true") {
     box.classList.add("hidden");
     box.dataset.secret = "false";
     return;
   }
 
   showSurprise(
-    "Mon petit secret, c'est que j'ai envie de continuer à créer de beaux souvenirs avec toi et de découvrir tout ce que notre histoire nous réserve. 🤫💗",
+    "Mi pequeño secreto es que me hace ilusión seguir creando recuerdos contigo y descubrir todo lo bonito que nos queda por vivir. 🤫💗",
     "💌"
   );
 
@@ -639,46 +614,46 @@ function toggleSecret() {
 }
 
 const phrases = [
-  "Si je pouvais recommencer, j'aimerais te rencontrer encore une fois. 💖",
-  "Tu es l'une des plus belles choses qui me soient arrivées. 🥹",
-  "J'adore partager un petit morceau de ma journée avec toi. 💗",
-  "Trois mois avec toi et tu arrives toujours à me faire sourire. ❤️",
-  "Je n'ai pas besoin d'une journée parfaite pour vivre un joli moment avec toi. 🫶🏻",
-  "J'aimerais transformer chaque message en un câlin. 🫂",
-  "Merci de faire partie de ma vie, ma chérie. 🌷",
-  "Certains messages illuminent une journée, et puis il y a les tiens. 💞",
-  "Si je souris en regardant mon téléphone, tu y es peut-être pour quelque chose. 😊",
-  "C'est beau d'avoir quelqu'un avec qui partager autant de choses. 💗",
-  "Ma partie préférée, c'est de continuer à découvrir qui tu es. 🌸",
-  "J'espère qu'aujourd'hui tu trouveras encore une raison de sourire. 💖",
-  "Il ne faut pas de grands projets pour créer de beaux souvenirs. ✨",
-  "J'ai hâte de découvrir tous les moments qu'il nous reste à vivre. ❤️",
-  "Tu es ma personne préférée pour recevoir une surprise numérique. 🎁",
-  "Si je le pouvais, je t'enverrais un énorme câlin maintenant. 🫂",
-  "Trois mois, ce n'est que le début de notre histoire. 💌",
-  "J'espère que cette petite page te donnera un joli sourire. 🥹",
-  "Tu mérites de la tendresse, de la sérénité et plein de belles choses. 🌷",
-  "Certains jours ordinaires deviennent spéciaux grâce à une conversation. 💕",
-  "Je veux que tu aies toujours des raisons de sourire. 💗",
-  "J'aime l'idée de continuer à ajouter des mois à notre histoire. 🫶🏻",
-  "Petit rappel : tu es quelqu'un de très spécial pour moi. ❤️",
-  "Si cette page avait une voix, elle te dirait que je t'aime très fort. 💋",
-  "Parfois, le plus beau, c'est de se sentir écouté et aimé. 💞",
-  "Merci pour tous les beaux moments que nous avons partagés. 🌸",
-  "J'aimerais être près de toi pour célébrer ces trois mois ensemble. 🫂",
-  "Tu as une place très spéciale dans mon cœur. 💖",
-  "Aujourd'hui, nous avons une belle raison de célébrer notre histoire. 🎉",
-  "Cette petite surprise est faite spécialement pour toi. 💌",
-  "Je veux continuer à apprendre à t'aimer de la meilleure façon possible. ❤️",
-  "J'espère que nous garderons toujours l'envie de nous parler et de nous comprendre. 🫶🏻",
-  "Si cette phrase te fait sourire, alors ma petite mission est réussie. 😊",
-  "Je t'envoie de la tendresse sous forme de mots et de cœurs. 💗",
-  "J'espère qu'un jour nous repenserons à ces trois mois avec le sourire. 🌷",
-  "Chaque histoire a son propre rythme, et j'aime découvrir le nôtre. 💞",
-  "Tu n'as rien à faire de spécial pour mériter d'être aimée avec douceur. 💖",
-  "Un cœur pour toi, un autre pour tes sourires et un autre pour nos souvenirs. ❤️",
-  "Mon cadeau est simple, mais je l'ai préparé en pensant à toi. 🎁",
-  "Joyeux trois mois, mon amour. Merci de partager ce bout de chemin avec moi. 💗"
+  "Si tuviera que volver a empezar, me encantaría volver a conocerte. 💖",
+  "Eres una de las cosas más bonitas que han llegado a mi vida. 🥹",
+  "Me encanta poder compartir un trocito de mi día contigo. 💗",
+  "Tres meses contigo y todavía me sacas sonrisas. ❤️",
+  "No necesito un día perfecto si puedo compartir contigo un momento bonito. 🫶🏻",
+  "Ojalá pudiera convertir cada mensaje en un abrazo. 🫂",
+  "Gracias por formar parte de mi historia, mi niña. 🌷",
+  "Hay mensajes que alegran el día, y luego están los tuyos. 💞",
+  "Si sonrío mirando el móvil, puede que tú tengas algo que ver. 😊",
+  "Qué bonito es tener a alguien con quien compartir tantas cosas. 💗",
+  "Mi parte favorita es seguir descubriendo cómo eres. 🌸",
+  "Espero que hoy encuentres una razón más para sonreír. 💖",
+  "No hacen falta grandes planes para crear recuerdos bonitos. ✨",
+  "Me hace ilusión pensar en todos los momentos que nos quedan. ❤️",
+  "Eres mi persona favorita para recibir una sorpresa digital. 🎁",
+  "Si pudiera enviarte algo ahora mismo, sería un abrazo enorme. 🫂",
+  "Tres meses son solo el comienzo de nuestra historia. 💌",
+  "Ojalá esta pequeña web te saque una sonrisa de las tuyas. 🥹",
+  "Te mereces cariño, tranquilidad y muchísimas cosas bonitas. 🌷",
+  "Hay días normales que se vuelven especiales por una conversación. 💕",
+  "Quiero que nunca te falten motivos para sonreír. 💗",
+  "Me gusta la idea de seguir sumando meses contigo. 🫶🏻",
+  "Un pequeño recordatorio: eres alguien muy especial para mí. ❤️",
+  "Si esta página tuviera voz, te diría que te quiero muchísimo. 💋",
+  "A veces lo más bonito es sentirse escuchado y querido. 💞",
+  "Gracias por cada momento bonito que hemos compartido. 🌸",
+  "Ojalá pudiera estar ahí para celebrar estos tres meses contigo. 🫂",
+  "Tienes un lugar muy bonito en mi corazón. 💖",
+  "Hoy tenemos una excusa perfecta para celebrar lo nuestro. 🎉",
+  "Me encanta que esta pequeña sorpresa sea solo para ti. 💌",
+  "Quiero seguir aprendiendo a quererte de la forma que mereces. ❤️",
+  "Que nunca nos falten las ganas de hablar y entendernos. 🫶🏻",
+  "Si esta frase te hace sonreír, mi pequeña misión está cumplida. 😊",
+  "Te mando cariño en forma de letras y corazones. 💗",
+  "Ojalá algún día podamos recordar estos tres meses con una sonrisa. 🌷",
+  "Cada historia tiene su propio ritmo, y me gusta descubrir el nuestro. 💞",
+  "No tienes que hacer nada especial para merecer que te quieran bonito. 💖",
+  "Un corazón para ti, otro para tus sonrisas y otro para nuestros recuerdos. ❤️",
+  "Mi regalo es sencillo, pero lo he preparado pensando en ti. 🎁",
+  "Felices tres meses, mi amor. Gracias por compartir esta parte del camino conmigo. 💗"
 ];
 
 let lastPhraseIndex = -1;
@@ -693,18 +668,10 @@ function newPhrase() {
   lastPhraseIndex = index;
 
   const area = document.getElementById("phrase");
+  area.style.animation = "none";
+  void area.offsetWidth;
   area.textContent = phrases[index];
-
-  area.animate(
-    [
-      { opacity: 0, transform: "translateY(8px)" },
-      { opacity: 1, transform: "translateY(0)" }
-    ],
-    {
-      duration: reducedMotion ? 0 : 400,
-      easing: "ease-out"
-    }
-  );
+  area.style.animation = "appear .4s ease";
 
   burst(8);
 }
@@ -717,17 +684,23 @@ function backToLetter() {
   burst(12);
 }
 
-/* MINI-JEU : FACILE, SANS CHRONOMÈTRE */
+/* MINIJUEGO */
 
 let score = 0;
+let gameTimer = null;
 let gameActive = false;
 
 function startGame() {
+  clearTimeout(gameTimer);
+
   score = 0;
   gameActive = true;
 
   document.getElementById("score").textContent = score;
   document.getElementById("gameMessage").textContent = "";
+
+  const game = document.getElementById("game");
+  game.innerHTML = "";
 
   spawnHeart();
 }
@@ -736,7 +709,7 @@ function spawnHeart() {
   if (!gameActive) return;
 
   const game = document.getElementById("game");
-  game.replaceChildren();
+  game.innerHTML = "";
 
   const heart = document.createElement("button");
   heart.className = "game-heart";
@@ -745,13 +718,12 @@ function spawnHeart() {
     Math.floor(Math.random() * 4)
   ];
 
-  heart.setAttribute("aria-label", "Attraper ce cœur");
-
-  const maxX = Math.max(0, game.clientWidth - 64);
-  const maxY = Math.max(0, game.clientHeight - 64);
+  const maxX = Math.max(0, game.clientWidth - 50);
+  const maxY = Math.max(0, game.clientHeight - 50);
 
   heart.style.left = Math.random() * maxX + "px";
   heart.style.top = Math.random() * maxY + "px";
+  heart.setAttribute("aria-label", "Recoger corazón");
 
   heart.addEventListener("click", () => {
     if (!gameActive) return;
@@ -759,21 +731,12 @@ function spawnHeart() {
     score++;
     document.getElementById("score").textContent = score;
 
-    if (score === 3 || score === 6 || score === 9) {
-      document.getElementById("gameMessage").textContent =
-        score + " cœurs attrapés ! Tu y es presque ! 💕";
-    }
-
     if (score >= 10) {
       gameActive = false;
-
-      game.innerHTML =
-        '<div style="padding:35px 12px;font-size:2.5rem">💗💖💕</div>';
-
+      game.innerHTML = '<div style="padding:45px 12px;font-size:2.5rem">💗💖💕</div>';
       document.getElementById("gameMessage").textContent =
-        "Bravo, tu as attrapé 10 cœurs ! Mais il y en a un qui est déjà entièrement à toi. Je t'aime très fort ! ❤️🥹💋";
-
-      burst(35);
+        "¡Has atrapado 10 corazones! Aunque hay uno que ya es completamente tuyo. ❤️🥹";
+      burst(25);
       return;
     }
 
@@ -782,7 +745,23 @@ function spawnHeart() {
   });
 
   game.appendChild(heart);
+
+  gameTimer = setTimeout(() => {
+    if (!gameActive) return;
+
+    game.innerHTML =
+      '<p style="padding:30px">¡El corazón se ha escapado! Pulsa para intentarlo otra vez. 💗</p>';
+
+    gameActive = false;
+
+    const retry = document.createElement("button");
+    retry.className = "secondary";
+    retry.textContent = "Intentarlo de nuevo 💕";
+    retry.onclick = startGame;
+    game.appendChild(retry);
+  }, 3000);
 }
 </script>
 </body>
 </html>
+```
